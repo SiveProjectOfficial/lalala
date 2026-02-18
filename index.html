@@ -73,7 +73,22 @@
             border: 1px solid #ffcccc;
             border-radius: 15px;
             padding: 30px;
+            text-align: center; /* 中央寄せにしてボタンを目立たせたよ */
         }
+        
+        /* 規約へ飛ぶボタン */
+        .rules-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        .rules-btn:hover { background-color: #555; }
+
         footer { text-align: center; padding: 50px; color: #999; }
         @media (max-width: 768px) { .character-card { flex-direction: column; text-align: center; } }
     </style>
@@ -115,8 +130,9 @@
     </div>
 
     <div class="rules-section">
-        <h3>⚠️ AI生成について⚠️</h3>
+        <h3>⚠️ 利用規約・AI生成について ⚠️</h3>
         <p>AI生成は自由ですが、ネット上（SNS・動画サイト）への公開は収益を問わず禁止です。個人的に楽しんでね！</p>
+        <a href="rules.html" class="rules-btn">詳しい利用規約をチェックする ☆</a>
     </div>
 </div>
 
