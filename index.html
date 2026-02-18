@@ -13,6 +13,7 @@
             --border-color: #eaeaea;
             --rule-bg: #fff0f0;
             --rule-border: #ffcccc;
+            --info-bg: #fdfdfd;
         }
 
         /* --- システムがダークモードなら自動で切り替え --- */
@@ -24,6 +25,7 @@
                 --border-color: #333;
                 --rule-bg: #2d1a1a;
                 --rule-border: #5c2b2b;
+                --info-bg: #252525;
             }
         }
 
@@ -35,6 +37,7 @@
             --border-color: #eaeaea;
             --rule-bg: #fff0f0;
             --rule-border: #ffcccc;
+            --info-bg: #fdfdfd;
         }
         [data-theme="dark"] {
             --bg-color: #121212;
@@ -43,6 +46,7 @@
             --border-color: #333;
             --rule-bg: #2d1a1a;
             --rule-border: #5c2b2b;
+            --info-bg: #252525;
         }
 
         body {
@@ -59,7 +63,7 @@
             padding: 40px 20px;
             text-align: center;
             border-bottom: 2px solid var(--border-color);
-            position: relative; /* ボタン配置の基準にするよ */
+            position: relative;
         }
 
         /* ヘッダー内の切り替えボタン */
@@ -81,6 +85,19 @@
         .theme-toggle-header:hover {
             transform: scale(1.05);
             background: var(--border-color);
+        }
+
+        /* 安心メッセージ枠 */
+        .site-info-box {
+            max-width: 700px;
+            margin: 25px auto 0;
+            padding: 15px;
+            background: var(--info-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            text-align: left;
+            line-height: 1.6;
         }
 
         .container {
@@ -141,10 +158,16 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 0.9rem;
+            font-weight: bold;
         }
 
-        footer { text-align: center; padding: 50px; color: #888; border-top: 1px solid var(--border-color); }
-        
+        footer { 
+            text-align: center; 
+            padding: 60px 20px; 
+            color: #888; 
+            border-top: 1px solid var(--border-color); 
+        }
+
         @media (max-width: 768px) { 
             .character-card { flex-direction: column; text-align: center; }
             .theme-toggle-header { position: static; margin-top: 15px; display: inline-block; }
@@ -158,7 +181,20 @@
     
     <h1>SiveProject</h1>
     <p>正弦波くんとナノカの音源を配布しています。</p>
-    <p>本サイト内の全ての画像は右クリック又は長押しでダウンロードできます。</p>
+
+    <div class="site-info-box">
+        <div style="margin-bottom: 10px;">
+            <b>🌓 表示モードについて</b><br>
+            本サイトでは端末の設定に合わせて、画面のモード（ライト/ダーク）が自動で切り替わります。右上のボタンでも変更可能です。
+        </div>
+        <div style="margin-bottom: 10px;">
+            <b>🛡️ ダウンロードについて</b><br>
+            音源の配布にはGoogle Driveを使用していますが、DL時に電話番号やGmail（Googleアカウント）等の個人情報をこちらが取得することはありませんので、安心してくださいね。
+        </div>
+        <div style="color: #888; font-size: 0.75rem;">
+            ※サイト内の全ての画像は右クリック又は長押しでダウンロード可能です。
+        </div>
+    </div>
 </header>
 
 <div class="container">
@@ -167,7 +203,7 @@
             <h3>正弦波ジャック（正弦波くん）</h3>
             <ul>
                 <li>zipのままOpen UTAUへD&D！</li>
-                <li>UTAU本体は解凍してUTAU의 voiceフォルダへ！</li>
+                <li>UTAU本体は解凍してUTAUのvoiceフォルダへ！</li>
                 <li>MacOS・Linuxの動作確認はしておりません。​​</li>
             </ul>
             <a href="jack.html" class="detail-btn btn-jack">正弦波くんのプロフィールを見る</a>
@@ -182,6 +218,7 @@
             <h3>正幻波ナノカ</h3>
             <ul>
                 <li>導入手順は正弦波くんと同じです。</li>
+                <li>デジタル特有の質感を活かした音源です。</li>
             </ul>
             <a href="nanoka.html" class="detail-btn btn-nanoka">ナノカのプロフィールを見る</a>
         </div>
@@ -192,13 +229,13 @@
 
     <div class="rules-section">
         <h3>⚠️ 利用規約・AI生成について ⚠️</h3>
-        <p>AI生成は自由ですが、ネット上（SNS・動画サイト）への公開は収益を問わず禁止です。個人的に楽しんでね！</p>
-        <a href="rules.html" class="rules-btn">詳しい利用規約をチェックする→</a>
+        <p>AI生成は自由ですが、ネット上への公開は収益を問わず禁止です。個人的に楽しんでね！</p>
+        <a href="rules.html" class="rules-btn">詳しい利用規約をチェックする →</a>
     </div>
 </div>
 
 <footer>
-    <div style="margin-bottom: 20px;">
+    <div style="margin-bottom: 25px;">
         <span style="font-weight: bold; color: #999;">Gmail</span><br>
         <a href="mailto:0329.mth@gmail.com" style="color: #81D4FA; text-decoration: none; font-size: 1rem;">0329.mth@gmail.com</a>
     </div>
@@ -206,6 +243,7 @@
 </footer>
 
 <script>
+    // テーマ切り替えのロジック
     function toggleTheme() {
         const body = document.body;
         const currentTheme = body.getAttribute('data-theme');
@@ -217,6 +255,7 @@
             localStorage.setItem('theme', 'dark');
         }
     }
+    // 保存されたテーマがあればページ読み込み時に適用
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.body.setAttribute('data-theme', savedTheme);
