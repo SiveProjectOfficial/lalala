@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiveProject | UTAU音源配布</title>
+    <style>
+        /* 全体のデザイン */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.8;
+        }
 
+        header {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* キャラクターセクションのカード */
+        .character-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .char-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .char-info h3 {
+            font-size: 1.5rem;
+            border-left: 5px solid #333;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .char-img-container {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+
+        .char-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .char-img:hover {
+            transform: scale(1.02);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        /* 規約セクション */
+        .rules-section {
+            background-color: #fff0f0;
+            border: 1px solid #ffcccc;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .rules-section h3 {
+            color: #d9534f;
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* スマホ向けの調整 */
+        @media (max-width: 768px) {
+            .character-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .char-info h3 {
+                border-left: none;
+                border-bottom: 2px solid #333;
+                display: inline-block;
+                padding-left: 0;
+            }
+            .char-img-container {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SiveProject</h1>
+</header>
+
+<div class="container">
+    <div class="intro">
+        <h2>UTAU Voice Library</h2>
+        <p>正弦波くんとナノカの音源を配布しています。</p>
+    </div>
+
+    <div class="character-card">
+        <div class="char-info">
+            <h3>正弦波くん (正弦波ジャック)</h3>
+            <ul>
+                <li><strong>Open UTAU:</strong> zipのままドラッグ＆ドロップで導入可能。</li>
+                <li><strong>UTAU:</strong> 解凍後、voiceフォルダへ直接移動。</li>
+                <li>Windows環境での動作を推奨しています。</li>
+                <li>画像は右クリック等で保存して活用してください。</li>
+            </ul>
+        </div>
+        <div class="char-img-container">
+            <img src="image/正弦波（ホーム）.JPG" alt="正弦波くん" class="char-img">
+        </div>
+    </div>
+
+    <div class="character-card">
+        <div class="char-info">
+            <h3>正幻波ナノカ</h3>
+            <ul>
+                <li>導入手順は正弦波くんと同じです。</li>
+                <li><strong>注意:</strong> MacOSやLinuxでの動作は未確認です。</li>
+                <li>音源を使って、ぜひ素敵な作品を作ってください！</li>
+            </ul>
+        </div>
+        <div class="char-img-container">
+            <img src="image/ナノカ（ホーム）.AVIF" alt="正幻波ナノカ" class="char-img">
+        </div>
+    </div>
+
+    <div class="rules-section">
+        <h3>⚠️ AI生成に関する重要なお願い</h3>
+        <p>AI生成（動画生成を含む）自体は制限しません。ただし、生成した作品を<strong>収益の有無にかかわらず、SNSや動画サイト等のインターネット上へ公開することはお控えください。</strong></p>
+        <p>個人的な範囲や、夢小説などの形でお楽しみいただければ幸いです！</p>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 SiveProject. Designed for Uuma.</p>
+</footer>
+
+</body>
+</html>
