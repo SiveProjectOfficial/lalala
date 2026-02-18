@@ -5,46 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>利用規約 | SiveProject</title>
     <style>
+        /* --- 変数の設定（システム設定ベース） --- */
+        :root {
+            --bg-color: #fffafa;
+            --container-bg: #ffffff;
+            --text-color: #000000;
+            --sub-text: #444444;
+            --border-color: #eeeeee;
+            --section-bg: #fdfdfd;
+        }
+
+        /* --- システムがダークモードなら自動で切り替え --- */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --container-bg: #1e1e1e;
+                --text-color: #e0e0e0;
+                --sub-text: #bbbbbb;
+                --border-color: #333333;
+                --section-bg: #252525;
+            }
+        }
+
+        /* --- 手動切り替え用の上書き --- */
+        [data-theme="light"] {
+            --bg-color: #fffafa;
+            --container-bg: #ffffff;
+            --text-color: #000000;
+            --sub-text: #444444;
+            --border-color: #eeeeee;
+            --section-bg: #fdfdfd;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --sub-text: #bbbbbb;
+            --border-color: #333333;
+            --section-bg: #252525;
+        }
+
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
-            background-color: #fffafa;
-            color: #000000;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.8;
+            transition: 0.3s;
         }
+
         .container {
             max-width: 800px;
             margin: 40px auto;
             padding: 30px;
-            background: #fff;
+            background: var(--container-bg);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+
         h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
         .ch-section { margin-bottom: 50px; padding: 20px; border-radius: 10px; }
         .jack-border { border: 2px solid #FC0254; }
         .nanoka-border { border: 2px solid #0CBFBD; }
         
-        h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
         .jack-title { color: #FC0254; }
         .nanoka-title { color: #0CBFBD; }
 
         .rule-list { list-style: decimal; padding-left: 20px; }
         .rule-list li { margin-bottom: 12px; font-weight: bold; }
-        .rule-list li span { font-weight: normal; display: block; color: #444; }
+        .rule-list li span { font-weight: normal; display: block; color: var(--sub-text); }
 
         .dl-btn-container {
             text-align: center;
             margin-top: 20px;
             padding: 20px;
-            background: #fdfdfd;
-            border-top: 1px dashed #eee;
+            background: var(--section-bg);
+            border-top: 1px dashed var(--border-color);
+            border-radius: 0 0 10px 10px;
         }
         .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; }
         .dl-btn {
             display: inline-block;
             padding: 12px 30px;
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
@@ -53,11 +97,36 @@
             background-color: #ccc;
         }
 
-        .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: #000000; }
-        footer { text-align: center; padding: 40px; color: #ccc; font-size: 0.8rem; }
+        .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: var(--text-color); font-weight: bold; }
+        
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* モード切り替えボタン */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: var(--container-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="モード切り替え">🌓</button>
 
 <div class="container">
     <h2>利用規約</h2>
@@ -73,7 +142,7 @@
             <li>設定の追加・変更<span>プロフィールの追加はOKですが、公式設定自体の変更はNGです。</span></li>
             <li>再配布の禁止<span>音源データの再配布は一律禁止です。</span></li>
             <li>商用利用（実体のあるもの）<span><strong style="color:#FC0254;">グッズ販売（アクスタ、缶バッジ、本など形に残るもの）による商用利用は一切禁止です。</strong></span></li>
-            <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品（YouTube動画の収益化など）での商用利用を許可します。</span></li>
+            <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
         </ol>
         <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
         
@@ -88,7 +157,7 @@
 
     <div class="ch-section nanoka-border">
         <h3 class="nanoka-title">正幻波ナノカ 利用規約</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 10px;">（ナノカは完全オリジナルのため、個人範囲のグッズ販売もOKです）</p>
+        <p style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.8;">（ナノカは完全オリジナルのため、個人範囲のグッズ販売もOKです）</p>
         <ol class="rule-list">
             <li>音源データの扱い<span>データの改変は行わないでください。</span></li>
             <li>二次創作の範囲<span>大歓迎です！公序良俗に反する使用は禁止します。</span></li>
@@ -111,7 +180,31 @@
     <a href="index.html" class="back-link">← TOPへ戻る</a>
 </div>
 
+<footer>
+    <div style="margin-bottom: 20px;">
+        <span style="font-weight: bold; color: #999;">Gmail</span><br>
+        <a href="mailto:0329.mth@gmail.com" style="color: #81D4FA; text-decoration: none; font-size: 1rem;">0329.mth@gmail.com</a>
+    </div>
+    <p style="letter-spacing: 1px;">&copy; 2026 SiveProject All Rights Reserved.</p>
+</footer>
+
 <script>
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+
     const checkJack = document.getElementById('check-jack');
     const dlJack = document.getElementById('dl-jack');
     const checkNanoka = document.getElementById('check-nanoka');
@@ -128,12 +221,5 @@
     });
 </script>
 
-<footer>
-    <p style="letter-spacing: 1px;">&copy; 2026 SiveProject All Rights Reserved.</p>
-<div class="contact-item">
-            <span style="font-weight: bold; color: #cccccc;">Gmail</span><br>
-            <a href="mailto:0329.mth@gmail.com" style="color: #81D4FA; text-decoration: none; font-size: 1rem;">0329.mth@gmail.com</a>
-        </div>
-</footer>
 </body>
 </html>
