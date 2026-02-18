@@ -8,93 +8,106 @@
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
-            background-color: #fffafb;
+            background-color: #ffffff;
             color: #333;
             line-height: 1.8;
         }
-        header {
-            background: #fff;
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 3px solid #ffc0cb;
-        }
         .container {
-            max-width: 900px;
-            margin: 20px auto;
+            max-width: 600px;
+            margin: 40px auto; /* 少し上に余白を持たせたよ */
             padding: 20px;
         }
-        .main-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
+        /* Wix風の水色見出し */
+        h2 {
+            color: #81d4fa;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee; /* ちょっとだけ区切り線 */
+            padding-bottom: 10px;
         }
-        .char-img {
-            max-width: 350px;
-            width: 100%;
-            border-radius: 10px;
-        }
-        .profile { flex: 1; min-width: 300px; }
-        .setting-gallery {
+        h3 {
+            color: #81d4fa;
+            font-size: 1.2rem;
             margin-top: 40px;
-            text-align: center;
+        }
+        .main-img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 8px; /* 角を少し丸くすると今風だよ */
+        }
+        .profile-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+        }
+        .profile-list li {
+            margin-bottom: 15px;
+        }
+        .story-text {
+            font-size: 1rem;
+            color: #555;
+            text-align: justify;
+        }
+        .setting-gallery {
+            margin-top: 50px;
+            border-top: 2px solid #f0f0f0;
+            padding-top: 30px;
         }
         .setting-img {
-            max-width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-        .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background: #333;
-            color: #fff;
-            text-decoration: none;
+            width: 100%;
             border-radius: 5px;
+            margin-top: 10px;
         }
-        @media (max-width: 768px) {
-            .main-card { flex-direction: column; align-items: center; }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 50px;
+            text-decoration: none;
+            color: #81d4fa;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.8rem;
+            color: #bbb;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>正幻波ナノカ Profile</h1>
-</header>
-
 <div class="container">
-    <div class="main-card">
-        <img src="image/ナノカ（ホーム）.AVIF" alt="ナノカ ホーム" class="char-img">
-        <div class="profile">
-            <h2>正幻波ナノカ</h2>
-            <p><strong>「こんにちは、正幻波ナノカです！」</strong></p>
-            <ul>
-                <li><strong>中の人：</strong> ユマ</li>
-                <li><strong>配布形式：</strong> UTAU単独音</li>
-            </ul>
-            <p>正弦波くんと一緒に、いろんな歌を歌わせてあげてくださいね。</p>
-        </div>
+    <img src="image/ナノカ（ホーム）.AVIF" alt="正幻波ナノカ" class="main-img">
+
+    <h2>正幻波ナノカ</h2>
+    
+    <h3>正幻波ナノカのプロフィール</h3>
+    <ul class="profile-list">
+        <li>名前：正幻波ナノカ</li>
+        <li>年齢：12歳</li>
+        <li>血液型・MBTI：あなた次第です</li>
+        <li>誕生日：あなたと出会った日！</li>
+    </ul>
+
+    <h3>正幻波ナノカの設定＋収益等について</h3>
+    <div class="story-text">
+        <p>正幻波ナノカは、UTAU世界のデジタルな波形データの中から「ナノデータ」として生まれた存在です。</p>
+        <p>本来、データはただの情報の集まりに過ぎませんが、彼女は生まれたその瞬間に、不思議と豊かな「感情」を宿しました。</p>
+        <p>心を持った彼女が、自分自身の意志で「なりたい」と願って形作ったのが、今のあの姿です。</p>
+        <p>彼女の歌声がどこかソウルフルで心に響くのは、その生まれたての感情がデータを通して溢れ出しているからかもしれません。</p>
     </div>
 
     <div class="setting-gallery">
-        <h3>キャラクター設定資料</h3>
-        <img src="image/ナノカ（設定）.AVIF" alt="ナノカ 設定" class="setting-img">
+        <h3>キャラクター設定画</h3>
+        <img src="image/ナノカ（設定）.AVIF" alt="ナノカ設定資料" class="setting-img">
     </div>
 
-    <div style="text-align: center;">
-        <a href="index.html" class="back-btn">トップページへ戻る</a>
-    </div>
+    <a href="index.html" class="back-link">← TOPへ戻る</a>
 </div>
 
 <footer>
-    <p style="text-align: center; padding: 40px; color: #ccc;">&copy; 2026 SiveProject</p>
+    <p>© 2026 Sive Project</p>
 </footer>
 
 </body>
