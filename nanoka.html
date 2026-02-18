@@ -5,77 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>正幻波ナノカ | SiveProject</title>
     <style>
+        /* --- 変数の設定（システム設定ベース） --- */
+        :root {
+            --bg-color: #ffffff;
+            --container-bg: #ffffff;
+            --text-color: #333333;
+            --sub-text: #555555;
+            --border-color: #eeeeee;
+            --header-color: #0CBFBD; /* ナノカの水色 */
+        }
+
+        /* --- システムがダークモードなら自動で切り替え --- */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --container-bg: #1e1e1e;
+                --text-color: #e0e0e0;
+                --sub-text: #bbbbbb;
+                --border-color: #333333;
+            }
+        }
+
+        /* --- 手動切り替え用の上書き --- */
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --container-bg: #ffffff;
+            --text-color: #333333;
+            --sub-text: #555555;
+            --border-color: #eeeeee;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --sub-text: #bbbbbb;
+            --border-color: #333333;
+        }
+
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.8;
+            transition: 0.3s;
         }
+
         .container {
             max-width: 600px;
-            margin: 40px auto; /* 少し上に余白を持たせたよ */
+            margin: 40px auto;
             padding: 20px;
+            background-color: var(--container-bg);
+            border-radius: 15px;
         }
-        /* Wix風の水色見出し */
+
         h2 {
-            color: #0CBFBD;
+            color: var(--header-color);
             font-size: 2.2rem;
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee; /* ちょっとだけ区切り線 */
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 10px;
         }
+
         h3 {
-            color: #0CBFBD;
+            color: var(--header-color);
             font-size: 1.2rem;
             margin-top: 40px;
         }
+
         .main-img {
             width: 100%;
             height: auto;
             margin-bottom: 30px;
-            border-radius: 8px; /* 角を少し丸くすると今風だよ */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
         .profile-list {
             list-style: none;
             padding: 0;
             font-size: 1.1rem;
         }
+
         .profile-list li {
             margin-bottom: 15px;
         }
+
         .story-text {
             font-size: 1rem;
-            color: #555;
+            color: var(--sub-text);
             text-align: justify;
         }
-        .setting-gallery {
-            margin-top: 50px;
-            border-top: 2px solid #f0f0f0;
-            padding-top: 30px;
-        }
-        .setting-img {
-            width: 100%;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
+
         .back-link {
             display: block;
             text-align: center;
             margin-top: 50px;
             text-decoration: none;
-            color: #0CBFBD;
+            color: var(--header-color);
             font-weight: bold;
         }
+
         footer {
             text-align: center;
             padding: 60px 20px;
             font-size: 0.8rem;
-            color: #bbb;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* モード切り替えボタン */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            background: var(--container-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            font-size: 1.2rem;
         }
     </style>
 </head>
 <body>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="モード切り替え">🌓</button>
 
 <div class="container">
     <img src="image/ナノカ（設定）.AVIF" alt="正幻波ナノカ" class="main-img">
@@ -84,10 +142,10 @@
     
     <h3>正幻波ナノカのプロフィール</h3>
     <ul class="profile-list">
-        <li>名前：正幻波ナノカ</li>
-        <li>年齢：12歳</li>
-        <li>血液型・MBTI：あなた次第です</li>
-        <li>誕生日：あなたと出会った日！</li>
+        <li><strong>名前：</strong>正幻波ナノカ</li>
+        <li><strong>年齢：</strong>12歳</li>
+        <li><strong>血液型・MBTI：</strong>あなた次第です</li>
+        <li><strong>誕生日：</strong>あなたと出会った日！</li>
     </ul>
 
     <h3>正幻波ナノカの設定</h3>
@@ -102,12 +160,30 @@
 </div>
 
 <footer>
+    <div style="margin-bottom: 20px;">
+        <span style="font-weight: bold; color: #999;">Gmail</span><br>
+        <a href="mailto:0329.mth@gmail.com" style="color: #81D4FA; text-decoration: none; font-size: 1rem;">0329.mth@gmail.com</a>
+    </div>
     <p style="letter-spacing: 1px;">&copy; 2026 SiveProject All Rights Reserved.</p>
-    <div class="contact-item">
-            <span style="font-weight: bold; color: #cccccc;">Gmail</span><br>
-            <a href="mailto:0329.mth@gmail.com" style="color: #81D4FA; text-decoration: none; font-size: 1rem;">0329.mth@gmail.com</a>
-        </div>
 </footer>
+
+<script>
+    function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
+    }
+</script>
 
 </body>
 </html>
