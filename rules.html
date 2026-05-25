@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>利用規約 | SiveProject</title>
     <style>
+        /* ライトモード（デフォルト） */
         :root {
             --bg-color: #fffafa;
             --container-bg: #ffffff;
@@ -16,8 +16,11 @@
             --sub-text: #444444;
             --border-color: #eeeeee;
             --section-bg: #fdfdfd;
+            --sns-links: #002AFF;
+            --gmail-color: #002AFF;
         }
 
+        /* ダークモード */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #121212;
@@ -26,9 +29,12 @@
                 --sub-text: #bbbbbb;
                 --border-color: #333333;
                 --section-bg: #252525;
+                --sns-links: #81d4fa;
+                --gmail-color: #81d4fa;
             }
         }
 
+        /* テーマ切り替え用の明示的な指定 */
         [data-theme="light"] {
             --bg-color: #fffafa;
             --container-bg: #ffffff;
@@ -36,6 +42,7 @@
             --sub-text: #444444;
             --border-color: #eeeeee;
             --section-bg: #fdfdfd;
+            --sns-links: #002AFF;
             --gmail-color: #002AFF;
         }
         [data-theme="dark"] {
@@ -45,7 +52,8 @@
             --sub-text: #bbbbbb;
             --border-color: #333333;
             --section-bg: #252525;
-            --gmail-color: #002AFF;
+            --sns-links: #81d4fa;
+            --gmail-color: #81d4fa;
         }
 
         body {
@@ -105,15 +113,35 @@
         footer {
             text-align: center;
             padding: 60px 20px;
-            color: #888;
             border-top: 1px solid var(--border-color);
-            --gmail-color: #002AFF;
+            color: var(--sub-text);
         }
+
+        /* SNSリンク設定 */
+        .sns-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 10px;
+            justify-items: center;
+            margin: 30px auto;
+            max-width: 320px;
+        }
+        .sns-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--sns-links);
+            gap: 8px;
+            width: 100%;
+        }
+        .sns-links a img { width: 45px; height: 45px; border-radius: 10px; }
+        .sns-links a span { font-size: 0.7rem; white-space: nowrap; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="container">
+<main class="container">
     <h2>利用規約</h2>
     <p style="text-align: center;">規約を最後まで確認し、同意いただける方のみダウンロードしてください。</p>
 
@@ -126,16 +154,11 @@
             <li>声質について<span>正弦波特有のロボ声を個性として楽しんでください。</span></li>
             <li>設定の追加・変更<span>プロフィールの追加はOKですが、公式設定自体の変更はNGです。</span></li>
             <li>再配布の禁止<span>音源データの再配布は一律禁止です。</span></li>
-            <li>商用利用（実体のあるもの）<span><strong style="color:#FC0254;">グッズ販売（アクスタ、缶バッジ、本など形に残るもの）による商用利用は一切禁止です。</strong></span></li>
+            <li>商用利用（実体のあるもの）<span><strong style="color:#FC0254;">グッズ販売による商用利用は一切禁止です。</strong></span></li>
             <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
         </ol>
-        <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
-        
         <div class="dl-btn-container">
-            <label class="check-area">
-                <input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する
-            </label>
-            <br>
+            <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label><br>
             <a href="https://drive.google.com/file/d/1SoOsIn9nPLVyyoswbkJz9BGGtPBCnqbB/view?usp=drive_link" id="dl-jack" class="dl-btn">ダウンロード</a>
         </div>
     </div>
@@ -146,63 +169,46 @@
         <ol class="rule-list">
             <li>音源データの扱い<span>データの改変は行わないでください。</span></li>
             <li>二次創作の範囲<span>大歓迎です！公序良俗に反する使用は禁止します。</span></li>
-            <li>声質について<span>デジタル特有の質感を個性として楽しんでください。</span></li>
-            <li>プロフ・設定の扱い<span>公式デザインを損なわない範囲で、プロフの追加は自由です。</span></li>
-            <li>再配布の禁止<span>音源データおよび同梱画像の無断再配布は禁止します。</span></li>
             <li>商用利用・グッズ化<span>個人・同人範囲でのグッズ制作・販売を全面的に許可します。</span></li>
             <li>責任範囲<span>トラブルについて、管理者は一切の責任を負いません。</span></li>
         </ol>
-        
         <div class="dl-btn-container">
-            <label class="check-area">
-                <input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する
-            </label>
-            <br>
+            <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label><br>
             <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">ダウンロード</a>
         </div>
     </div>
 
     <a href="index.html" class="back-link">← TOPへ戻る</a>
-</div>
-</div>
 </main>
+
 <div style="text-align:center; margin:30px 0;">
   <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
     <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
   </a>
 </div>
+
 <footer>
     <div class="sns-links">
-  <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
-  </a>
-  <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）">Sive【ららら】
-  </a>
-  <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
-    <img src="無題127_20260525185536.png" alt="YouTube">Sive【ららら】
-  </a>
-  <a href="https://x.com/sivelalala?s=21" target="_blank">
-    <img src="無題127_20260525185538.png" alt="X">Sive【ららら】
-  </a>
-</div>
-        <div style="margin-bottom: 20px;">
-        <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
+        <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank"><img src="無題127_20260525184712.png" alt="Bluesky"><span>正弦波くん【bot】</span></a>
+        <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank"><img src="無題127_20260525184712.png" alt="Bluesky"><span>Sive【ららら】</span></a>
+        <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank"><img src="無題127_20260525185536.png" alt="YouTube"><span>Sive【ららら】</span></a>
+        <a href="https://x.com/sivelalala?s=21" target="_blank"><img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span></a>
+    </div>
+    <div style="margin: 20px 0;">
+        <a href="sitemap.html" style="color: var(--sub-text);">サイトマップ</a>
     </div>
     <div style="margin-bottom: 25px;">
-        <span style="font-weight: bold; color: #999;">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" style="color:  text-decoration: none;">0329.mth@gmail.com</a>
+        <span style="font-weight: bold;">Gmail</span><br>
+        <a href="mailto:0329.mth@gmail.com" style="color: var(--gmail-color); text-decoration: none;">0329.mth@gmail.com</a>
     </div>
     
-    <p style="font-size: 0.75rem; color: #666; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
+    <p style="font-size: 0.75rem; margin: 0;">Powered by GitHub Pages</p>
     <p style="letter-spacing: 1px; margin: 0; line-height: 1.8;">&copy; 2026 SiveProject All Rights Reserved.</p>
 </footer>
 
 <script>
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        document.body.setAttribute('data-theme', savedTheme);
-    }
+    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
 
     const checkJack = document.getElementById('check-jack');
     const dlJack = document.getElementById('dl-jack');
@@ -213,7 +219,6 @@
         dlJack.style.pointerEvents = this.checked ? 'auto' : 'none';
         dlJack.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
     });
-
     checkNanoka.addEventListener('change', function() {
         dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
         dlNanoka.style.backgroundColor = this.checked ? '#0CBFBD' : '#ccc';
