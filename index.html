@@ -24,13 +24,28 @@
     <style>
         /* --- 変数定義 --- */
         :root {
-            --bg-color: #f4f7f9; --card-bg: #ffffff; --text-color: #1a1a1a;
-            --border-color: #eaeaea; --rule-bg: #fff0f0; --rule-border: #ffcccc;
-            --info-bg: #fdfdfd; --news-date: #606060;
-            --accent-jack: #CF0000; --accent-nanoka: #016068;
-            --footer-label: #555555; --gmail-color: #002AFF; --sub-text: #555555; --sns-links:#002AFF;
+            /* ライトモード用 */
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-color: #1a1a1a;
+            --border-color: #eaeaea;
+            --rule-bg: #fff0f0;
+            --rule-border: #ffcccc;
+            --info-bg: #fdfdfd;
+            --news-date: #606060;
+
+            /* 指定のキャラカラー（ライト） */
+            --accent-jack: #CF0000;   
+            --accent-nanoka: #016068; /* ユマ指定カラー：コントラスト重視 */
+            
+            /* フッター・Gmail用（指定カラー） */
+            --footer-label: #555555;
+            --gmail-color: #002AFF;   
+            --sub-text: #555555;
+            --sns-links:#002AFF;
         }
 
+        /* 手動切り替え（データ属性） */
         [data-theme="light"] {
             --bg-color: #f4f7f9; --card-bg: #ffffff; --text-color: #1a1a1a;
             --border-color: #eaeaea; --rule-bg: #fff0f0; --rule-border: #ffcccc;
@@ -46,41 +61,221 @@
             --footer-label: #cccccc; --gmail-color: #81d4fa; --sub-text: #b0b0b0; --sns-links: #81d4fa;
         }
         
-        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: var(--text-color); line-height: 1.8; transition: background-color 0.3s, color 0.3s; }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-        header { background-color: var(--card-bg); padding: 40px 20px; text-align: center; border-bottom: 2px solid var(--border-color); position: relative; }
+        header {
+            background-color: var(--card-bg);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+
         h1 { margin: 0; font-size: 2rem; }
-        .theme-toggle-header { position: absolute; top: 15px; right: 15px; padding: 6px 14px; border-radius: 20px; cursor: pointer; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); font-size: 0.85rem; font-weight: bold; }
+        h2 { font-size: 1.5rem; margin-top: 0; }
+        h3 { font-size: 1.2rem; margin-top: 0; }
 
-        .site-info-box { max-width: 700px; margin: 25px auto 0; padding: 15px; background: var(--info-bg); border: 1px solid var(--border-color); border-radius: 12px; font-size: 0.8rem; text-align: left; }
-        .site-info-notes { color: var(--sub-text); font-size: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 5px; margin-top: 5px; }
+        .theme-toggle-header {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-        .news-container { max-width: 700px; margin: 30px auto 10px; padding: 15px 20px; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); }
-        .news-title { font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; }
-        .news-list { list-style: none; padding: 0; margin: 0; font-size: 0.85rem; }
-        .news-item { padding: 5px 0; border-bottom: 1px solid var(--border-color); display: flex; gap: 15px; }
+        .site-info-box {
+            max-width: 700px;
+            margin: 25px auto 0;
+            padding: 15px;
+            background: var(--info-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.8rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .site-info-notes {
+            color: var(--sub-text);
+            font-size: 0.75rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+
+        /* --- News Section --- */
+        .news-container {
+            max-width: 700px;
+            margin: 30px auto 10px;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .news-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.85rem;
+        }
+        .news-item {
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 15px;
+        }
         .news-item:last-child { border-bottom: none; }
-        .news-item.hidden { display: none; } /* これで隠す！ */
         .news-date { color: var(--news-date); font-family: monospace; flex-shrink: 0; }
+        .news-text { flex-grow: 1; }
 
-        .container { max-width: 1000px; margin: 10px auto 30px; padding: 20px; }
-        .character-card { background: var(--card-bg); border-radius: 15px; padding: 30px; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 30px; align-items: center; border: 1px solid var(--border-color); }
+        .container {
+            max-width: 1000px;
+            margin: 10px auto 30px;
+            padding: 20px;
+        }
+
+        .character-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            border: 1px solid var(--border-color);
+        }
+
         .char-info { flex: 1; min-width: 300px; }
         .char-img-container { flex: 0 0 300px; text-align: center; }
-        .char-img { max-width: 100%; height: auto; border-radius: 10px; }
-        .sample-player { margin: 15px 0; padding: 10px; background: var(--bg-color); border-radius: 8px; }
-        .detail-btn { display: inline-block; margin-top: 15px; padding: 10px 24px; color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .char-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .sample-player {
+            margin: 15px 0;
+            padding: 10px;
+            background: var(--bg-color);
+            border-radius: 8px;
+        }
+        
+        .detail-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 24px;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .detail-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        
         .btn-jack { background-color: var(--accent-jack); }
         .btn-nanoka { background-color: var(--accent-nanoka); }
-        .rules-section { background-color: var(--rule-bg); border: 1px solid var(--rule-border); border-radius: 15px; padding: 30px; text-align: center; }
-        .rules-btn { display: inline-block; margin-top: 15px; padding: 8px 20px; background-color: var(--text-color); color: var(--bg-color); text-decoration: none; border-radius: 5px; font-weight: bold; }
-        footer { text-align: center; padding: 60px 20px; color: var(--sub-text); border-top: 1px solid var(--border-color); }
-        .sns-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 10px; justify-items: center; margin: 30px auto; max-width: 320px; }
-        .sns-links a { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--sns-links); gap: 8px; width: 100%; }
-        .sns-links a img { width: 45px; height: 45px; border-radius: 10px; }
-        .sns-links a span { font-size: 0.7rem; white-space: nowrap; }
+        
+        .accent-jack { color: var(--accent-jack); font-weight: bold; }
+        .accent-nanoka { color: var(--accent-nanoka); font-weight: bold; }
 
-        @media (max-width: 768px) { .character-card { flex-direction: column; text-align: center; } .news-item { flex-direction: column; gap: 2px; } }
+        .rules-section {
+            background-color: var(--rule-bg);
+            border: 1px solid var(--rule-border);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .rules-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--sub-text);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-gmail-label {
+            font-weight: bold; 
+            color: var(--footer-label);
+        }
+        .footer-gmail-link {
+            color: var(--gmail-color);
+            text-decoration: none;
+        }
+/* --- SNSリンク：2列2行・アイコンと名前のセット --- */
+.sns-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 左右2列に固定 */
+  gap: 20px 10px;                 /* 縦の隙間20px、横の隙間10px */
+  justify-items: center;          /* 中央寄せ */
+  margin: 30px auto;
+  max-width: 320px;               /* 4つが綺麗に並ぶ幅 */
+}
+
+.sns-links a {
+  display: flex;
+  flex-direction: column;         /* 縦並び（アイコン→名前） */
+  align-items: center;            /* 中央揃え */
+  text-decoration: none;
+  color: var(--sns-links);
+  gap: 8px;                       /* アイコンと名前の隙間 */
+  width: 100%;
+}
+
+.sns-links a img {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.sns-links a span {
+  font-size: 0.7rem;
+  white-space: nowrap;            /* 改行させない */
+  text-align: center;
+}
+
+        @media (max-width: 768px) { 
+            .character-card { flex-direction: column; text-align: center; }
+            .theme-toggle-header { position: static; margin-top: 15px; display: inline-block; }
+            .news-item { flex-direction: column; gap: 2px; }
+        }
     </style>
 </head>
 <body data-theme="light">
@@ -90,98 +285,160 @@
     <h1>SiveProject</h1>
     <p>正弦波くんとナノカの音源を配布しています。</p>
     <div class="site-info-box">
-        <div>本サイトでは画面表示設定のみの情報を取得します。</div>
-        <div class="site-info-notes">※サイト内の全ての画像は長押し等で保存可能です。（改変可）</div>
+        <div style="margin-bottom: 10px;">
+            <h2 style="font-size: 0.8rem; margin-bottom: 5px; display: inline-block;">本サイトで取得する情報について</h2>
+            <span>・本サイトでは画面表示設定（外観モード設定）のみの情報を取得します。</span>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <h2 style="font-size: 0.8rem; margin-bottom: 5px; display: inline-block;">外部サービスの使用について</h2>
+            <div><span>音源配布にはGoogle Driveを使用していますが、こちら側にGoogleアカウントが表示されることはありません。</span></div>
+            <div><span>お問い合わせ用のGmailについても、アカウント情報を保存・悪用することはありません。</span></div>
+            <div><span>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</span></div>
+        </div>
+        <div class="site-info-notes">
+            ※サイト内の全ての画像は長押し等で保存可能です。（改変可）
+        </div>
     </div>
 </header>
 
 <main id="main-content">
     <div class="news-container">
         <h2 class="news-title">NEWS</h2>
-        <ul class="news-list" id="news-list">
+        <ul class="news-list">
             <li class="news-item">
                 <span class="news-date">2026.05.25</span>
-                <span class="news-text">報告忘れてました！X、YouTubeにて管理者“Sive【ららら】"アカウント開始！</span>
+                <span class="news-text">報告忘れてました！ごめんなさい！！</span>
+                <span class="news-text">X、YouTubeにて管理者“Sive【ららら】"アカウント開始！</span>
+                <span class="news-text">YouTubeは未投稿です。各リンクが概要欄にある状態です。</span>
             </li>
             <li class="news-item">
                 <span class="news-date">2026.05.19</span>
-                <span class="news-text">“正弦波くん【bot】"がBlueskyにて再始動！管理アカウント開始！</span>
+                <span class="news-text">“正弦波くん【bot】"アカウントがBlueskyにて再始動！</span>
+            <span class="news-text">Blueskyにて管理者“Sive【ららら】"アカウント開始！</span>
             </li>
             <li class="news-item">
                 <span class="news-date">2026.04.09</span>
-                <span class="news-text">規約遵守のため、AI立ち絵の配布を終了いたしました。</span>
+                <span class="news-text">自作規約の遵守のため、サイト内で公開していたAI生成の立ち絵素材の配布を終了いたしました。</span>
             </li>
-            <li class="news-item hidden">
+            <li class="news-item">
                 <span class="news-date">2026.03.29</span>
                 <span class="news-text">正弦波ジャック【JPN＆ENG】（ver-1.0.1）配布開始！</span>
             </li>
-            <li class="news-item hidden">
+            <li class="news-item">
                 <span class="news-date">2026.03.28</span>
                 <span class="news-text">サイトを一部改修しました！</span>
             </li>
-            <li class="news-item hidden">
+            <li class="news-item">
                 <span class="news-date">2026.03.18</span>
-                <span class="news-text">エラー多発のためXbot“正弦波くん”アカウントを終了致しました。</span>
+                <span class="news-text">エラー多発のためXbot“正弦波くん”アカウントを終了致しました。フォローして下さった皆様ありがとうございました！</span>
             </li>
-            <li class="news-item hidden">
+            <li class="news-item">
                 <span class="news-date">2026.1.14</span>
                 <span class="news-text">正弦波ジャック、正幻波ナノカの音源配布サイトを移行・改修しました！</span>
             </li>
         </ul>
-        <button id="more-btn" style="display:block; width:100%; border:none; background:none; color:var(--text-color); cursor:pointer; font-size:0.8rem; margin-top:10px; opacity:0.7;">▼ もっと見る</button>
     </div>
 
     <div class="container">
         <div class="character-card">
             <div class="char-info">
                 <h3>正弦波ジャック（正弦波くん）</h3>
+                <ul>
+                    <li>zipのままOpen UTAUへD&D！</li>
+                    <li>UTAU本体は解凍してUTAUのvoiceフォルダへ！</li>
+                    <li class="accent-jack">加算合成音声のため、モゴモゴした声と発音が特徴です。</li>
+                </ul>
+                <div class="sample-player">
+                    <p style="font-size: 0.7rem; margin-bottom: 5px; opacity: 0.7;">🎵 音声サンプル：きらきら星</p>
+                    <audio controls src="image/正弦波くんキラキラ星.wav" style="width: 100%; height: 35px;"></audio>
+                </div>
                 <a href="jack.html" class="detail-btn btn-jack">プロフを見る</a>
             </div>
-            <div class="char-img-container"><img src="image/IMG_2140.webp" class="char-img"></div>
+            <div class="char-img-container">
+                <img src="image/IMG_2140.webp" alt="正弦波ジャック" class="char-img">
+            </div>
         </div>
+
         <div class="character-card">
             <div class="char-info">
                 <h3>正幻波ナノカ</h3>
+                <ul>
+                    <li>導入手順は正弦波くんと同じです。</li>
+                    <li class="accent-nanoka">減算合成音声のため、発音がはっきりしているのが特徴です。</li>
+                </ul>
+                <div class="sample-player">
+                    <p style="font-size: 0.7rem; margin-bottom: 5px; opacity: 0.7;">🎵 音声サンプル：きらきら星</p>
+                    <audio controls src="image/ナノカキラキラ星.wav" style="width: 100%; height: 35px;"></audio>
+                </div>
                 <a href="nanoka.html" class="detail-btn btn-nanoka">プロフを見る</a>
             </div>
-            <div class="char-img-container"><img src="image/IMG_2139.webp" class="char-img"></div>
+            <div class="char-img-container">
+                <img src="image/IMG_2139.webp" alt="正幻波ナノカ" class="char-img">
+            </div>
         </div>
+
+        <section class="rules-section">
+            <h3>⚠️ 利用規約・AI生成について ⚠️</h3>
+            <p>AI生成は自由ですが、ネット上への公開は禁止です。個人的に楽しんでね！</p>
+            <a href="rules.html" class="rules-btn">詳しい規約とダウンロード →</a>
+        </section>
     </div>
 </main>
+<div style="text-align:center; margin:30px 0;">
+  <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
+    <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
+  </a>
+</div>
 
 <footer>
-    <div class="sns-links">
-        <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank"><img src="無題127_20260525184712.png"><span>正弦波くん【bot】</span></a>
-        <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank"><img src="無題127_20260525184712.png"><span>Sive【ららら】</span></a>
-        <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank"><img src="無題127_20260525185536.png"><span>Sive【ららら】</span></a>
-        <a href="https://x.com/sivelalala?s=21" target="_blank"><img src="無題127_20260525185538.png"><span>Sive【ららら】</span></a>
+        <div class="sns-links">
+  <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
+    <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
+  </a>
+  <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
+    <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）">Sive【ららら】
+  </a>
+  <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
+    <img src="無題127_20260525185536.png" alt="YouTube">Sive【ららら】
+  </a>
+  <a href="https://x.com/sivelalala?s=21" target="_blank">
+    <img src="無題127_20260525185538.png" alt="X">Sive【ららら】
+  </a>
+</div>
+        <div style="margin-bottom: 20px;">
+        <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
     </div>
+    <div style="margin-bottom: 25px;">
+        <span class="footer-gmail-label">Gmail</span><br>
+        <a href="mailto:0329.mth@gmail.com" class="footer-gmail-link">0329.mth@gmail.com</a>
+    </div>
+    <p style="font-size: 0.75rem; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
+    <p style="letter-spacing: 1px; margin: 0; line-height: 1.2;">&copy; 2026 SiveProject All Rights Reserved.</p>
 </footer>
 
 <script>
-    // もっと見るボタン
-    const moreBtn = document.getElementById('more-btn');
-    const hiddenItems = document.querySelectorAll('.news-item.hidden');
-    moreBtn.addEventListener('click', () => {
-        hiddenItems.forEach(item => item.classList.remove('hidden'));
-        moreBtn.style.display = 'none';
-    });
-
-    // モード切替
     const body = document.body;
     const toggleBtn = document.querySelector('.theme-toggle-header');
+
     const applyTheme = (theme) => {
         body.setAttribute('data-theme', theme);
         if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '🌙' : '🔆';
         localStorage.setItem('theme', theme);
     };
+
     function toggleTheme() {
-        applyTheme(body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+        const currentTheme = body.getAttribute('data-theme');
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme);
     }
+
     (function initTheme() {
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        applyTheme(savedTheme);
+        const savedTheme = localStorage.getItem('theme');
+        const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
+        applyTheme(initialTheme);
     })();
 </script>
+
 </body>
 </html>
