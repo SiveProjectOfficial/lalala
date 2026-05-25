@@ -235,17 +235,65 @@
             color: var(--footer-label);
         }
         .footer-gmail-link {
-            color: var(--gmail-color);
-            text-decoration: none;
-        }
+            
+            text-decoration: none;color
+        }: 
        /* SNSリンクの横並び設定 */
+        /* --- SNSリンクのスタイル（2列×2行・自動縮小付き） --- */
 .sns-links {
   display: flex;
-  flex-wrap: wrap; /* 画面が狭いときは自動で改行してくれる */
+  flex-wrap: wrap;       /* 改行を許可 */
   justify-content: center;
-  gap: 15px;
-  margin: 30px 0;
+  gap: 15px;             /* アイコン同士の隙間 */
+  margin: 30px auto;
+  max-width: 400px;      /* 広がりすぎ防止 */
 }
+
+.sns-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sns-links);
+  width: 40%;            /* 2個並ぶ幅 */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.sns-links a img {
+  width: 45px;           /* 通常サイズ */
+  height: 45px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  transition: transform 0.2s;
+}
+
+.sns-links a:hover img {
+  transform: scale(1.05); /* マウスを乗せると少し膨らむ */
+}
+
+.sns-links a span {
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;   /* 改行させない */
+}
+
+/* 画面が小さい時（スマホ）だけ縮小 */
+@media (max-width: 480px) {
+  .sns-links a img {
+    width: 35px;         /* スマホでは少し小さく */
+    height: 35px;
+  }
+  .sns-links a span {
+    font-size: 0.6rem;   /* 文字も少し小さく */
+  }
+  .sns-links {
+    gap: 10px;           /* 隙間を詰める */
+  }
+}
+
+        
+        var(--gmail-color);
 
 .sns-links a {
   display: flex;
