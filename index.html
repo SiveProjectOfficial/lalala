@@ -1,397 +1,176 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta name="google-site-verification" content="HR5duaG7kJc7cPypTsmMkbR114Klfllj53-V0vN2vKE" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SiveProject | UTAU音源公式サイト">
-    <meta name="twitter:description" content="正弦波ジャック（正弦波くん）と正幻波ナノカの公式配布サイトです。">
-    <meta name="twitter:image" content="https://siveprojectofficial.github.io/lalala/image/card.png.PNG">
-    
-    <meta property="og:title" content="SiveProject | UTAU音源公式サイト">
-    <meta property="og:description" content="正弦波ジャック（正弦波くん）と正幻波ナノカの公式配布サイトです。">
-    <meta property="og:image" content="https://siveprojectofficial.github.io/lalala/image/card.png.PNG">
-    <meta property="og:url" content="https://siveprojectofficial.github.io/lalala/">
-    <meta property="og:type" content="website">
-
-    <meta name="description" content="UTAU音源配布サイト『SiveProject』の公式サイトです。正弦波ジャックと正幻波ナノカの情報を発信しています。">
-    <link rel="icon" href="IMG_1749.ico"> 
-    <link rel="apple-touch-icon" href="IMG_1749.ico"> 
-
+    <meta name="description" content="SiveProjectの音源利用規約およびダウンロードページです。ご利用の前に必ず内容のご確認をお願いいたします。">
+    <link rel="icon" href="IMG_1749.ico">
+    <link rel="apple-touch-icon" href="IMG_1749.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SiveProject | UTAU音源配布</title>
+    <title>利用規約 | SiveProject</title>
     <style>
-        /* --- 変数定義 --- */
         :root {
-            /* ライトモード用 */
-            --bg-color: #f4f7f9;
-            --card-bg: #ffffff;
-            --text-color: #1a1a1a;
-            --border-color: #eaeaea;
-            --rule-bg: #fff0f0;
-            --rule-border: #ffcccc;
-            --info-bg: #fdfdfd;
-            --news-date: #606060;
-
-            /* 指定のキャラカラー（ライト） */
-            --accent-jack: #CF0000;   
-            --accent-nanoka: #016068; /* ユマ指定カラー：コントラスト重視 */
-            
-            /* フッター・Gmail用（指定カラー） */
-            --footer-label: #555555;
-            --gmail-color: #002AFF;   
-            --sub-text: #555555;
-            --sns-links:#002AFF;
+            --bg-color: #fffafa;
+            --container-bg: #ffffff;
+            --text-color: #000000;
+            --sub-text: #444444;
+            --border-color: #eeeeee;
+            --section-bg: #fdfdfd;
         }
 
-        /* 手動切り替え（データ属性） */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --container-bg: #1e1e1e;
+                --text-color: #e0e0e0;
+                --sub-text: #bbbbbb;
+                --border-color: #333333;
+                --section-bg: #252525;
+            }
+        }
+
         [data-theme="light"] {
-            --bg-color: #f4f7f9; --card-bg: #ffffff; --text-color: #1a1a1a;
-            --border-color: #eaeaea; --rule-bg: #fff0f0; --rule-border: #ffcccc;
-            --info-bg: #fdfdfd; --news-date: #606060;
-            --accent-jack: #CF0000; --accent-nanoka: #016068;
-            --footer-label: #555555; --gmail-color: #002AFF; --sub-text: #555555;
+            --bg-color: #fffafa;
+            --container-bg: #ffffff;
+            --text-color: #000000;
+            --sub-text: #444444;
+            --border-color: #eeeeee;
+            --section-bg: #fdfdfd;
         }
         [data-theme="dark"] {
-            --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #f0f0f0;
-            --border-color: #333333; --rule-bg: #2d1a1a; --rule-border: #5c2b2b;
-            --info-bg: #252525; --news-date: #b0b0b0;
-            --accent-jack: #ff5c8d; --accent-nanoka: #4dd0e1;
-            --footer-label: #cccccc; --gmail-color: #81d4fa; --sub-text: #b0b0b0; --sns-links: #81d4fa;
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --sub-text: #bbbbbb;
+            --border-color: #333333;
+            --section-bg: #252525;
         }
-        
+
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.8;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header {
-            background-color: var(--card-bg);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--border-color);
-            position: relative;
-        }
-
-        h1 { margin: 0; font-size: 2rem; }
-        h2 { font-size: 1.5rem; margin-top: 0; }
-        h3 { font-size: 1.2rem; margin-top: 0; }
-
-        .theme-toggle-header {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            background: var(--bg-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            font-size: 0.85rem;
-            font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
-        .site-info-box {
-            max-width: 700px;
-            margin: 25px auto 0;
-            padding: 15px;
-            background: var(--info-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            font-size: 0.8rem;
-            text-align: left;
-            line-height: 1.6;
-        }
-
-        .site-info-notes {
-            color: var(--sub-text);
-            font-size: 0.75rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 5px;
-            margin-top: 5px;
-        }
-
-        /* --- News Section --- */
-        .news-container {
-            max-width: 700px;
-            margin: 30px auto 10px;
-            padding: 15px 20px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-        .news-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .news-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.85rem;
-        }
-        .news-item {
-            padding: 5px 0;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            gap: 15px;
-        }
-        .news-item:last-child { border-bottom: none; }
-        .news-date { color: var(--news-date); font-family: monospace; flex-shrink: 0; }
-        .news-text { flex-grow: 1; }
 
         .container {
-            max-width: 1000px;
-            margin: 10px auto 30px;
-            padding: 20px;
-        }
-
-        .character-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+            max-width: 800px;
+            margin: 40px auto;
             padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-            border: 1px solid var(--border-color);
+            background: var(--container-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .char-info { flex: 1; min-width: 300px; }
-        .char-img-container { flex: 0 0 300px; text-align: center; }
-        .char-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .sample-player {
-            margin: 15px 0;
-            padding: 10px;
-            background: var(--bg-color);
-            border-radius: 8px;
-        }
+        h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
+        .ch-section { margin-bottom: 50px; padding: 20px; border-radius: 10px; }
+        .jack-border { border: 2px solid #FC0254; }
+        .nanoka-border { border: 2px solid #0CBFBD; }
         
-        .detail-btn {
+        h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
+        .jack-title { color: #FC0254; }
+        .nanoka-title { color: #0CBFBD; }
+
+        .rule-list { list-style: decimal; padding-left: 20px; }
+        .rule-list li { margin-bottom: 12px; font-weight: bold; }
+        .rule-list li span { font-weight: normal; display: block; color: var(--sub-text); }
+
+        .dl-btn-container {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--section-bg);
+            border-top: 1px dashed var(--border-color);
+            border-radius: 0 0 10px 10px;
+        }
+        .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; }
+        .dl-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 24px;
+            padding: 12px 30px;
             color: white !important;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-weight: bold;
             transition: 0.3s;
-        }
-        .detail-btn:hover { opacity: 0.8; transform: translateY(-2px); }
-        
-        .btn-jack { background-color: var(--accent-jack); }
-        .btn-nanoka { background-color: var(--accent-nanoka); }
-        
-        .accent-jack { color: var(--accent-jack); font-weight: bold; }
-        .accent-nanoka { color: var(--accent-nanoka); font-weight: bold; }
-
-        .rules-section {
-            background-color: var(--rule-bg);
-            border: 1px solid var(--rule-border);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .rules-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 20px;
-            background-color: var(--text-color);
-            color: var(--bg-color);
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: bold;
+            pointer-events: none;
+            background-color: #ccc;
         }
 
+        .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: var(--text-color); font-weight: bold; }
+        
         footer {
             text-align: center;
             padding: 60px 20px;
-            color: var(--sub-text);
-            border-top: 1px solid var(--border-color);
-        }
+         
+            border-top: 1px solid var(--border-color);color
+                }: #888;
 
-        .footer-gmail-label {
-            font-weight: bold; 
-            color: var(--footer-label);
-        }
-        .footer-gmail-link {
-            color: var(--gmail-color);
-            text-decoration: none;
-        }
-/* --- SNSリンク：2列2行・アイコンと名前のセット --- */
-.sns-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 左右2列に固定 */
-  gap: 20px 10px;                 /* 縦の隙間20px、横の隙間10px */
-  justify-items: center;          /* 中央寄せ */
-  margin: 30px auto;
-  max-width: 320px;               /* 4つが綺麗に並ぶ幅 */
-}
-
-.sns-links a {
-  display: flex;
-  flex-direction: column;         /* 縦並び（アイコン→名前） */
-  align-items: center;            /* 中央揃え */
-  text-decoration: none;
-  color: var(--sns-links);
-  gap: 8px;                       /* アイコンと名前の隙間 */
-  width: 100%;
-}
-
-.sns-links a img {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.sns-links a span {
-  font-size: 0.7rem;
-  white-space: nowrap;            /* 改行させない */
-  text-align: center;
-}
-
-        @media (max-width: 768px) { 
-            .character-card { flex-direction: column; text-align: center; }
-            .theme-toggle-header { position: static; margin-top: 15px; display: inline-block; }
-            .news-item { flex-direction: column; gap: 2px; }
-        }
     </style>
 </head>
-<body data-theme="light">
+<body>
 
-<header>
-    <button class="theme-toggle-header" onclick="toggleTheme()" title="モード切り替え">🔆 / 🌙</button>
-    <h1>SiveProject</h1>
-    <p>正弦波くんとナノカの音源を配布しています。</p>
-    <div class="site-info-box">
-        <div style="margin-bottom: 10px;">
-            <h2 style="font-size: 0.8rem; margin-bottom: 5px; display: inline-block;">本サイトで取得する情報について</h2>
-            <span>・本サイトでは画面表示設定（外観モード設定）のみの情報を取得します。</span>
-        </div>
-        <div style="margin-bottom: 10px;">
-            <h2 style="font-size: 0.8rem; margin-bottom: 5px; display: inline-block;">外部サービスの使用について</h2>
-            <div><span>音源配布にはGoogle Driveを使用していますが、こちら側にGoogleアカウントが表示されることはありません。</span></div>
-            <div><span>お問い合わせ用のGmailについても、アカウント情報を保存・悪用することはありません。</span></div>
-            <div><span>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</span></div>
-        </div>
-        <div class="site-info-notes">
-            ※サイト内の全ての画像は長押し等で保存可能です。（改変可）
+<div class="container">
+    <h2>利用規約</h2>
+    <p style="text-align: center;">規約を最後まで確認し、同意いただける方のみダウンロードしてください。</p>
+
+    <div class="ch-section jack-border">
+        <h3 class="jack-title">正弦波ジャック 利用規約</h3>
+        <ol class="rule-list">
+            <li>マジックツリーハウス関連の禁止事項<span>児童書『マジックツリーハウス』のジャックとしての使用はできません。</span></li>
+            <li>音源データの改変禁止<span>データの改変は行わないでください。</span></li>
+            <li>二次創作について<span>大歓迎です！ただし、マジックツリーハウスのジャックと同一人物として扱う描写は禁止します。</span></li>
+            <li>声質について<span>正弦波特有のロボ声を個性として楽しんでください。</span></li>
+            <li>設定の追加・変更<span>プロフィールの追加はOKですが、公式設定自体の変更はNGです。</span></li>
+            <li>再配布の禁止<span>音源データの再配布は一律禁止です。</span></li>
+            <li>商用利用（実体のあるもの）<span><strong style="color:#FC0254;">グッズ販売（アクスタ、缶バッジ、本など形に残るもの）による商用利用は一切禁止です。</strong></span></li>
+            <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
+        </ol>
+        <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
+        
+        <div class="dl-btn-container">
+            <label class="check-area">
+                <input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する
+            </label>
+            <br>
+            <a href="https://drive.google.com/file/d/1SoOsIn9nPLVyyoswbkJz9BGGtPBCnqbB/view?usp=drive_link" id="dl-jack" class="dl-btn">ダウンロード</a>
         </div>
     </div>
-</header>
 
-<main id="main-content">
-    <div class="news-container">
-        <h2 class="news-title">NEWS</h2>
-        <ul class="news-list">
-            <li class="news-item">
-                <span class="news-date">2026.05.25</span>
-                <span class="news-text">報告忘れてました！ごめんなさい！！</span>
-                <span class="news-text">X、YouTubeにて管理者“Sive【ららら】"アカウント開始！</span>
-                <span class="news-text">YouTubeは未投稿です。各リンクが概要欄にある状態です。</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.05.19</span>
-                <span class="news-text">“正弦波くん【bot】"アカウントがBlueskyにて再始動！</span>
-            <span class="news-text">Blueskyにて管理者“Sive【ららら】"アカウント開始！</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.04.09</span>
-                <span class="news-text">自作規約の遵守のため、サイト内で公開していたAI生成の立ち絵素材の配布を終了いたしました。</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.03.29</span>
-                <span class="news-text">正弦波ジャック【JPN＆ENG】（ver-1.0.1）配布開始！</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.03.28</span>
-                <span class="news-text">サイトを一部改修しました！</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.03.18</span>
-                <span class="news-text">エラー多発のためXbot“正弦波くん”アカウントを終了致しました。フォローして下さった皆様ありがとうございました！</span>
-            </li>
-            <li class="news-item">
-                <span class="news-date">2026.1.14</span>
-                <span class="news-text">正弦波ジャック、正幻波ナノカの音源配布サイトを移行・改修しました！</span>
-            </li>
-        </ul>
+    <div class="ch-section nanoka-border">
+        <h3 class="nanoka-title">正幻波ナノカ 利用規約</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.8;">（ナノカは完全オリジナルのため、個人範囲のグッズ販売もOKです）</p>
+        <ol class="rule-list">
+            <li>音源データの扱い<span>データの改変は行わないでください。</span></li>
+            <li>二次創作の範囲<span>大歓迎です！公序良俗に反する使用は禁止します。</span></li>
+            <li>声質について<span>デジタル特有の質感を個性として楽しんでください。</span></li>
+            <li>プロフ・設定の扱い<span>公式デザインを損なわない範囲で、プロフの追加は自由です。</span></li>
+            <li>再配布の禁止<span>音源データおよび同梱画像の無断再配布は禁止します。</span></li>
+            <li>商用利用・グッズ化<span>個人・同人範囲でのグッズ制作・販売を全面的に許可します。</span></li>
+            <li>責任範囲<span>トラブルについて、管理者は一切の責任を負いません。</span></li>
+        </ol>
+        
+        <div class="dl-btn-container">
+            <label class="check-area">
+                <input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する
+            </label>
+            <br>
+            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">ダウンロード</a>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="character-card">
-            <div class="char-info">
-                <h3>正弦波ジャック（正弦波くん）</h3>
-                <ul>
-                    <li>zipのままOpen UTAUへD&D！</li>
-                    <li>UTAU本体は解凍してUTAUのvoiceフォルダへ！</li>
-                    <li class="accent-jack">加算合成音声のため、モゴモゴした声と発音が特徴です。</li>
-                </ul>
-                <div class="sample-player">
-                    <p style="font-size: 0.7rem; margin-bottom: 5px; opacity: 0.7;">🎵 音声サンプル：きらきら星</p>
-                    <audio controls src="image/正弦波くんキラキラ星.wav" style="width: 100%; height: 35px;"></audio>
-                </div>
-                <a href="jack.html" class="detail-btn btn-jack">プロフを見る</a>
-            </div>
-            <div class="char-img-container">
-                <img src="image/IMG_2140.webp" alt="正弦波ジャック" class="char-img">
-            </div>
-        </div>
-
-        <div class="character-card">
-            <div class="char-info">
-                <h3>正幻波ナノカ</h3>
-                <ul>
-                    <li>導入手順は正弦波くんと同じです。</li>
-                    <li class="accent-nanoka">減算合成音声のため、発音がはっきりしているのが特徴です。</li>
-                </ul>
-                <div class="sample-player">
-                    <p style="font-size: 0.7rem; margin-bottom: 5px; opacity: 0.7;">🎵 音声サンプル：きらきら星</p>
-                    <audio controls src="image/ナノカキラキラ星.wav" style="width: 100%; height: 35px;"></audio>
-                </div>
-                <a href="nanoka.html" class="detail-btn btn-nanoka">プロフを見る</a>
-            </div>
-            <div class="char-img-container">
-                <img src="image/IMG_2139.webp" alt="正幻波ナノカ" class="char-img">
-            </div>
-        </div>
-
-        <section class="rules-section">
-            <h3>⚠️ 利用規約・AI生成について ⚠️</h3>
-            <p>AI生成は自由ですが、ネット上への公開は禁止です。個人的に楽しんでね！</p>
-            <a href="rules.html" class="rules-btn">詳しい規約とダウンロード →</a>
-        </section>
-    </div>
+    <a href="index.html" class="back-link">← TOPへ戻る</a>
+</div>
+</div>
 </main>
 <div style="text-align:center; margin:30px 0;">
   <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
     <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
   </a>
 </div>
-
 <footer>
-        <div class="sns-links">
+    <div class="sns-links">
   <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
     <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
   </a>
@@ -409,35 +188,34 @@
         <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
     </div>
     <div style="margin-bottom: 25px;">
-        <span class="footer-gmail-label">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" class="footer-gmail-link">0329.mth@gmail.com</a>
+        <span style="font-weight: bold; color: #999;">Gmail</span><br>
+        <a href="mailto:0329.mth@gmail.com" style="color: #002AFF; text-decoration: none;">0329.mth@gmail.com</a>
     </div>
-    <p style="font-size: 0.75rem; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
-    <p style="letter-spacing: 1px; margin: 0; line-height: 1.2;">&copy; 2026 SiveProject All Rights Reserved.</p>
+    
+    <p style="font-size: 0.75rem; color: #666; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
+    <p style="letter-spacing: 1px; margin: 0; line-height: 1.8;">&copy; 2026 SiveProject All Rights Reserved.</p>
 </footer>
 
 <script>
-    const body = document.body;
-    const toggleBtn = document.querySelector('.theme-toggle-header');
-
-    const applyTheme = (theme) => {
-        body.setAttribute('data-theme', theme);
-        if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '🌙' : '🔆';
-        localStorage.setItem('theme', theme);
-    };
-
-    function toggleTheme() {
-        const currentTheme = body.getAttribute('data-theme');
-        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        applyTheme(nextTheme);
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.setAttribute('data-theme', savedTheme);
     }
 
-    (function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
-        applyTheme(initialTheme);
-    })();
+    const checkJack = document.getElementById('check-jack');
+    const dlJack = document.getElementById('dl-jack');
+    const checkNanoka = document.getElementById('check-nanoka');
+    const dlNanoka = document.getElementById('dl-nanoka');
+
+    checkJack.addEventListener('change', function() {
+        dlJack.style.pointerEvents = this.checked ? 'auto' : 'none';
+        dlJack.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
+    });
+
+    checkNanoka.addEventListener('change', function() {
+        dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
+        dlNanoka.style.backgroundColor = this.checked ? '#0CBFBD' : '#ccc';
+    });
 </script>
 
 </body>
