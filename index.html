@@ -296,47 +296,43 @@
             <div><span>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</span></div>
         </div>
         <div class="site-info-notes">
-            ※サイト内の全ての画像は長押し等で保存可能です。（改変可）
-        </div>
-    </div>
-</header>
+          サイト内の全ての画像は長押し等で保存可能です。（改変可）
 
-<main id="main-content">
-    <div class="news-container">
+            <div class="news-container">
         <h2 class="news-title">NEWS</h2>
-        <ul class="news-list">
+        <ul class="news-list" id="news-list">
             <li class="news-item">
                 <span class="news-date">2026.05.25</span>
-                <span class="news-text">報告忘れてました！ごめんなさい！！</span>
-                <span class="news-text">X、YouTubeにて管理者“Sive【ららら】"アカウント開始！</span>
-                <span class="news-text">YouTubeは未投稿です。各リンクが概要欄にある状態です。</span>
+                <span class="news-text">報告忘れてました！ごめんなさい！！X、YouTubeにて管理者“Sive【ららら】"アカウント開始！YouTubeは未投稿です。各リンクが概要欄にある状態です。</span>
             </li>
             <li class="news-item">
                 <span class="news-date">2026.05.19</span>
-                <span class="news-text">“正弦波くん【bot】"アカウントがBlueskyにて再始動！</span>
-            <span class="news-text">Blueskyにて管理者“Sive【ららら】"アカウント開始！</span>
+                <span class="news-text">“正弦波くん【bot】"アカウントがBlueskyにて再始動！Blueskyにて管理者“Sive【ららら】"アカウント開始！</span>
             </li>
             <li class="news-item">
                 <span class="news-date">2026.04.09</span>
                 <span class="news-text">自作規約の遵守のため、サイト内で公開していたAI生成の立ち絵素材の配布を終了いたしました。</span>
             </li>
-            <li class="news-item">
+            <li class="news-item hidden">
                 <span class="news-date">2026.03.29</span>
                 <span class="news-text">正弦波ジャック【JPN＆ENG】（ver-1.0.1）配布開始！</span>
             </li>
-            <li class="news-item">
+            <li class="news-item hidden">
                 <span class="news-date">2026.03.28</span>
                 <span class="news-text">サイトを一部改修しました！</span>
             </li>
-            <li class="news-item">
+            <li class="news-item hidden">
                 <span class="news-date">2026.03.18</span>
                 <span class="news-text">エラー多発のためXbot“正弦波くん”アカウントを終了致しました。フォローして下さった皆様ありがとうございました！</span>
             </li>
-            <li class="news-item">
+            <li class="news-item hidden">
                 <span class="news-date">2026.1.14</span>
                 <span class="news-text">正弦波ジャック、正幻波ナノカの音源配布サイトを移行・改修しました！</span>
             </li>
         </ul>
+        <button id="more-btn" style="display:block; width:100%; border:none; background:none; color:var(--text-color); cursor:pointer; font-size:0.8rem; margin-top:10px; opacity:0.7;">▼ もっと見る</button>
+    </div>
+
     </div>
 
     <div class="container">
@@ -417,6 +413,14 @@
 </footer>
 
 <script>
+        // もっと見るボタンの処理
+    const moreBtn = document.getElementById('more-btn');
+    const hiddenItems = document.querySelectorAll('.news-item.hidden');
+    moreBtn.addEventListener('click', () => {
+        hiddenItems.forEach(item => item.classList.remove('hidden'));
+        moreBtn.style.display = 'none';
+    });
+
     const body = document.body;
     const toggleBtn = document.querySelector('.theme-toggle-header');
 
