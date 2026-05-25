@@ -234,20 +234,46 @@
             font-weight: bold; 
             color: var(--footer-label);
         }
-        .footer-gmail-link {
-            
-            text-decoration: none;color
-        }: 
-       /* SNSリンクの横並び設定 */
-        /* --- SNSリンクのスタイル（2列×2行・自動縮小付き） --- */
+        .
+                        
+        }: 
+        /* 2列固定のグリッド設定 */
 .sns-links {
-  display: flex;
-  flex-wrap: wrap;       /* 改行を許可 */
-  justify-content: center;
-  gap: 15px;             /* アイコン同士の隙間 */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 左右均等な2列を強制する */
+  justify-items: center;          /* 左右の中央寄せ */
+  gap: 20px 10px;                 /* 縦の隙間 20px、横の隙間 10px */
   margin: 30px auto;
-  max-width: 400px;      /* 広がりすぎ防止 */
+  max-width: 400px;               /* 広がりすぎ防止 */
 }
+
+/* 各リンクの設定 */
+.sns-links a {
+  display: flex;
+  align-items: center;            /* アイコンと文字を縦中央に */
+  text-decoration: none;
+  color: var(--sns-links);
+  width: 100%;                    /* グリッドセルいっぱいに広げる */
+  gap: 8px;                       /* アイコンと文字の間 */
+}
+
+/* アイコンの設定 */
+.sns-links a img {
+  width: 35px;                    /* どんな画面でもこのサイズ */
+  height: 35px;
+  border-radius: 8px;
+  flex-shrink: 0;                 /* 絶対に縮ませない */
+}
+
+/* 文字の設定 */
+.sns-links a span {
+  font-size: 0.7rem;              /* 小さく固定 */
+  white-space: nowrap;            /* 文字は改行させない */
+}
+
+        
+        text-decoration: none;colorfooter-gmail
+-link {
 
 .sns-links a {
   display: flex;
