@@ -238,6 +238,33 @@
             color: var(--gmail-color);
             text-decoration: none;
         }
+       /* SNSリンクの横並び設定 */
+.sns-links {
+  display: flex;
+  flex-wrap: wrap; /* 画面が狭いときは自動で改行してくれる */
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.sns-links a {
+  display: flex;
+  flex-direction: column; /* アイコンの下に文字が来るように */
+  align-items: center;
+  text-decoration: none;
+  color: var(--sns-links); /* 指定したカラー */
+  font-size: 0.7rem;
+  transition: opacity 0.2s;
+}
+
+.sns-links a:hover { opacity: 0.7; }
+
+.sns-links img {
+  width: 45px; /* ここでサイズ調整 */
+  height: 45px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
 
         @media (max-width: 768px) { 
             .character-card { flex-direction: column; text-align: center; }
