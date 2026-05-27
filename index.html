@@ -243,23 +243,21 @@
             color: var(--gmail-color);
             text-decoration: none;
         }
-/* --- SNSリンク：2列2行・アイコンと名前のセット --- */
+
 .sns-links {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 左右2列に固定 */
-  gap: 20px 10px;                 /* 縦の隙間20px、横の隙間10px */
-  justify-items: center;          /* 中央寄せ */
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px 10px;               
+  justify-items: center;          
   margin: 30px auto;
-  max-width: 320px;               /* 4つが綺麗に並ぶ幅 */
+  max-width: 320px;               
 }
 
 .sns-links a {
   display: flex;
-  flex-direction: column;         /* 縦並び（アイコン→名前） */
-  align-items: center;            /* 中央揃え */
-  text-decoration: none;
-  color: var(--sns-links);
-  gap: 8px;                       /* アイコンと名前の隙間 */
+  flex-direction: column;         
+  align-items: center;           
+
   width: 100%;
 }
 
@@ -291,10 +289,10 @@
     <p>正弦波くんとナノカの音源を配布しています。</p>
     <div class="site-info-box">
         <div style="margin-bottom: 10px;">
-               <h>本サイトで取得する情報について</h>
+               <h1>本サイトで取得する情報について</h1>
             <div><p>本サイトでは画面表示設定（外観モード設定）のみの情報を取得します。</p></div>
         <div style="margin-bottom: 10px;">
-            <h>外部サービスの使用について</h>
+            <h1>外部サービスの使用について</h1>
             <div><p>音源配布にはGoogle Driveを使用していますが、こちら側にGoogleアカウントが表示されることはありません。</p></div>
             <div><p>お問い合わせ用のGmailについても、アカウント情報を保存・悪用することはありません。</p></div>
             <div><p>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</p></div>
