@@ -237,19 +237,8 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .footer-gmail-label {
-            font-weight: bold; 
-            color: var(--footer-label);
-        }
-        .footer-gmail-link {
-    color: var(--brand-color);
-    text-decoration: none;
-}
-
-
+        /* SNSリンク全体の設定 */
 .sns-links {
-    color: var(--brand-color); 
-    text-decoration: none;
   display: grid;
   grid-template-columns: 1fr 1fr; 
   gap: 20px 10px;               
@@ -258,26 +247,27 @@
   max-width: 320px;               
 }
 
+/* リンクそのものに色を適用する */
 .sns-links a {
   display: flex;
   flex-direction: column;         
   align-items: center;           
-
   width: 100%;
+  color: var(--brand-color); /* これをここに書く！ */
+  text-decoration: none;     /* 下線を消す */
 }
 
-.sns-links a img {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  flex-shrink: 0;
+/* もしリンクをホバーした時に色を変えたいならこれ */
+.sns-links a:hover {
+  opacity: 0.7;
 }
 
-.sns-links a span {
-  font-size: 0.7rem;
-  white-space: nowrap;            
-  text-align: center;
+/* Gmailリンクの設定 */
+.footer-gmail-link {
+    color: var(--brand-color);
+    text-decoration: none;
 }
+
 
         @media (max-width: 768px) { 
             .character-card { flex-direction: column; text-align: center; }
