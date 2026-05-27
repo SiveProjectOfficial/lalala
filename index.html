@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiveProject | UTAU音源配布</title>
     <style>
-        /* --- 変数定義 --- */
+                /* --- 変数定義 --- */
         :root {
             /* ライトモード用 */
             --bg-color: #f4f7f9;
@@ -37,15 +37,14 @@
             --info-bg: #fdfdfd;
             --news-date: #606060;
 
-            /* 指定のキャラカラー（ライト） */
             --accent-jack: #CF0000;   
-            --accent-nanoka: #016068; /* ユマ指定カラー：コントラスト重視 */
+            --accent-nanoka: #016068;
             
-            /* フッター・Gmail用（指定カラー） */
             --footer-label: #555555;
-            --gmail-color: #002AFF;   
             --sub-text: #555555;
-            --sns-links:#002AFF;
+            
+            /* GmailとSNSの色を統一（ここでは例として #002AFF に設定） */
+            --brand-color: #002AFF; 
         }
 
         /* 手動切り替え（データ属性） */
@@ -54,15 +53,18 @@
             --border-color: #eaeaea; --rule-bg: #fff0f0; --rule-border: #ffcccc;
             --info-bg: #fdfdfd; --news-date: #606060;
             --accent-jack: #CF0000; --accent-nanoka: #016068;
-            --footer-label: #555555; --gmail-color: #002AFF; --sub-text: #555555;sns-links: #002AFF;
+            --footer-label: #555555; --sub-text: #555555;
+            --brand-color: #002AFF;
         }
         [data-theme="dark"] {
             --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #f0f0f0;
             --border-color: #333333; --rule-bg: #2d1a1a; --rule-border: #5c2b2b;
             --info-bg: #252525; --news-date: #b0b0b0;
             --accent-jack: #ff5c8d; --accent-nanoka: #4dd0e1;
-            --footer-label: #cccccc; --gmail-color: #81d4fa; --sub-text: #b0b0b0; --sns-links: #81d4fa;
+            --footer-label: #cccccc; --sub-text: #b0b0b0;
+            --brand-color: #81d4fa;
         }
+
         
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
