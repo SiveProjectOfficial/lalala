@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>利用規約 | SiveProject</title>
     <style>
-        /* ライトモード（デフォルト） */
         :root {
             --bg-color: #fffafa;
             --container-bg: #ffffff;
@@ -20,7 +19,6 @@
             --gmail-color: #002AFF;
         }
 
-        /* ダークモード */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-color: #121212;
@@ -34,28 +32,6 @@
             }
         }
 
-        /* テーマ切り替え用の明示的な指定 */
-        [data-theme="light"] {
-            --bg-color: #fffafa;
-            --container-bg: #ffffff;
-            --text-color: #000000;
-            --sub-text: #444444;
-            --border-color: #eeeeee;
-            --section-bg: #fdfdfd;
-            --sns-links: #002AFF;
-            --gmail-color: #002AFF;
-        }
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --sub-text: #bbbbbb;
-            --border-color: #333333;
-            --section-bg: #252525;
-            --sns-links: #81d4fa;
-            --gmail-color: #81d4fa;
-        }
-
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
@@ -65,40 +41,22 @@
             transition: 0.3s;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background: var(--container-bg);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
+        .container { max-width: 800px; margin: 40px auto; padding: 30px; background: var(--container-bg); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
         .ch-section { margin-bottom: 50px; padding: 20px; border-radius: 10px; }
         .jack-border { border: 2px solid #FC0254; }
         .nanoka-border { border: 2px solid #0CBFBD; }
-        
         h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
-        .jack-title { color: #FC0254; }
-        .nanoka-title { color: #0CBFBD; }
-
         .rule-list { list-style: decimal; padding-left: 20px; }
         .rule-list li { margin-bottom: 12px; font-weight: bold; }
         .rule-list li span { font-weight: normal; display: block; color: var(--sub-text); }
-
-        .dl-btn-container {
-            text-align: center;
-            margin-top: 20px;
-            padding: 20px;
-            background: var(--section-bg);
-            border-top: 1px dashed var(--border-color);
-            border-radius: 0 0 10px 10px;
-        }
-        .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; }
+        
+        .dl-btn-container { text-align: center; margin-top: 20px; padding: 20px; background: var(--section-bg); border-top: 1px dashed var(--border-color); border-radius: 0 0 10px 10px; }
+        .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; display: block; }
         .dl-btn {
             display: inline-block;
-            padding: 12px 30px;
+            margin: 10px 5px;
+            padding: 12px 20px;
             color: white !important;
             text-decoration: none;
             border-radius: 50px;
@@ -107,36 +65,12 @@
             pointer-events: none;
             background-color: #ccc;
         }
-
         .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: var(--text-color); font-weight: bold; }
-        
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--sub-text);
-        }
-
-        /* SNSリンク設定 */
-        .sns-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px 10px;
-            justify-items: center;
-            margin: 30px auto;
-            max-width: 320px;
-        }
-        .sns-links a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--sns-links);
-            gap: 8px;
-            width: 100%;
-        }
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border-color); color: var(--sub-text); }
+        .sns-links { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 10px; justify-items: center; margin: 30px auto; max-width: 320px; }
+        .sns-links a { display: flex; flex-direction: column; align-items: center; text-decoration: none; color: var(--sns-links); gap: 8px; width: 100%; }
         .sns-links a img { width: 45px; height: 45px; border-radius: 10px; }
-        .sns-links a span { font-size: 0.7rem; white-space: nowrap; text-align: center; }
+        .sns-links a span { font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -146,7 +80,7 @@
     <p style="text-align: center;">規約を最後まで確認し、同意いただける方のみダウンロードしてください。</p>
 
     <div class="ch-section jack-border">
-        <h3 class="jack-title">正弦波ジャック 利用規約</h3>
+        <h3 style="color: #FC0254;">正弦波ジャック 利用規約</h3>
         <ol class="rule-list">
             <li>マジックツリーハウス関連の禁止事項<span>児童書『マジックツリーハウス』のジャックとしての使用はできません。</span></li>
             <li>音源データの改変禁止<span>データの改変は行わないでください。</span></li>
@@ -157,19 +91,15 @@
             <li>商用利用（実体のあるもの）<span><strong style="color:#FC0254;">グッズ販売（アクスタ、缶バッジ、本など形に残るもの）による商用利用は一切禁止です。</strong></span></li>
             <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
         </ol>
-        <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
-        </ol>
         <div class="dl-btn-container">
-            <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label><br>
-            <a href="https://drive.google.com/file/d/1SoOsIn9nPLVyyoswbkJz9BGGtPBCnqbB/view?usp=drive_link" id="dl-jack" class="dl-btn">正弦波ジャック【JPN＆ENG】（ver-1.0.1）ダウンロード</a>
-        </div>
-    </div>
-             <a href="https://drive.google.com/file/d/188aDmKg1Yn0MGHhD_Vaps_Z6Hq0WD3iC/view?usp=sharing" id="dl-jack" class="dl-btn">正弦波ジャック【JPN＆ENG】（ver-1.0.2）ダウンロード</a>
+            <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label>
+            <a href="https://drive.google.com/file/d/1SoOsIn9nPLVyyoswbkJz9BGGtPBCnqbB/view" id="dl-jack-1" class="dl-btn">正弦波ジャック【JPN＆ENG】（ver-1.0.1）ダウンロード</a>
+            <a href="https://drive.google.com/file/d/188aDmKg1Yn0MGHhD_Vaps_Z6Hq0WD3iC/view" id="dl-jack-2" class="dl-btn">正弦波ジャック【JPN＆ENG】（ver-1.0.2）ダウンロード</a>
         </div>
     </div>
 
     <div class="ch-section nanoka-border">
-        <h3 class="nanoka-title">正幻波ナノカ 利用規約</h3>
+        <h3 style="color: #0CBFBD;">正幻波ナノカ 利用規約</h3>
         <p style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.8;">（ナノカは完全オリジナルのため、個人範囲のグッズ販売もOKです）</p>
         <ol class="rule-list">
             <li>音源データの扱い<span>データの改変は行わないでください。</span></li>
@@ -181,55 +111,33 @@
             <li>責任範囲<span>トラブルについて、管理者は一切の責任を負いません。</span></li>
         </ol>
         <div class="dl-btn-container">
-            <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label><br>
-            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">ダウンロード</a>
+            <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label>
+            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view" id="dl-nanoka" class="dl-btn">ダウンロード</a>
         </div>
     </div>
 
     <a href="index.html" class="back-link">← TOPへ戻る</a>
 </main>
 
-<div style="text-align:center; margin:30px 0;">
-  <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
-    <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
-  </a>
-</div>
-
 <footer>
     <div class="sns-links">
-        <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank"><img src="無題127_20260525184712.png" alt="Bluesky"><span>正弦波くん【bot】</span></a>
-        <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank"><img src="無題127_20260525184712.png" alt="Bluesky"><span>Sive【ららら】</span></a>
-        <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank"><img src="無題127_20260525185536.png" alt="YouTube"><span>Sive【ららら】</span></a>
-        <a href="https://x.com/sivelalala?s=21" target="_blank"><img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span></a>
+        <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank"><img src="無題127_20260525184712.png" alt="Bluesky"><span>正弦波くん</span></a>
+        <a href="https://youtube.com/@sivelalala" target="_blank"><img src="無題127_20260525185536.png" alt="YouTube"><span>Sive</span></a>
     </div>
-    <div style="margin: 20px 0;">
-        <a href="sitemap.html" style="color: var(--sub-text);">サイトマップ</a>
-    </div>
-    <div style="margin-bottom: 25px;">
-        <span style="font-weight: bold;">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" style="color: var(--gmail-color); text-decoration: none;">0329.mth@gmail.com</a>
-    </div>
-    
-    <p style="font-size: 0.75rem; margin: 0;">Powered by GitHub Pages</p>
-    <p style="letter-spacing: 1px; margin: 0; line-height: 1.8;">&copy; 2026 SiveProject All Rights Reserved.</p>
 </footer>
 
 <script>
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
-
-    const checkJack = document.getElementById('check-jack');
-    const dlJack = document.getElementById('dl-jack');
-    const checkNanoka = document.getElementById('check-nanoka');
-    const dlNanoka = document.getElementById('dl-nanoka');
-
-    checkJack.addEventListener('change', function() {
-        dlJack.style.pointerEvents = this.checked ? 'auto' : 'none';
-        dlJack.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
+    document.getElementById('check-jack').addEventListener('change', function() {
+        const btns = [document.getElementById('dl-jack-1'), document.getElementById('dl-jack-2')];
+        btns.forEach(btn => {
+            btn.style.pointerEvents = this.checked ? 'auto' : 'none';
+            btn.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
+        });
     });
-    checkNanoka.addEventListener('change', function() {
-        dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
-        dlNanoka.style.backgroundColor = this.checked ? '#0CBFBD' : '#ccc';
+    document.getElementById('check-nanoka').addEventListener('change', function() {
+        const btn = document.getElementById('dl-nanoka');
+        btn.style.pointerEvents = this.checked ? 'auto' : 'none';
+        btn.style.backgroundColor = this.checked ? '#0CBFBD' : '#ccc';
     });
 </script>
 
