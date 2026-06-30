@@ -98,6 +98,7 @@
         .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; }
         .dl-btn {
             display: inline-block;
+            margin: 5px;
             padding: 12px 30px;
             color: white !important;
             text-decoration: none;
@@ -117,7 +118,6 @@
             color: var(--sub-text);
         }
 
-        /* SNSリンク設定 */
         .sns-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -158,7 +158,6 @@
             <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
         </ol>
         <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
-        </ol>
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label><br>
             <a href="https://drive.google.com/file/d/1p9DCcw12aWY0wyjlFT05cpPU9tL1o_Fa/view?usp=sharing" id="dl-jackv1" class="dl-btn">正弦波ジャック【JPN&ENG】（ver-1.0.1）ダウンロード</a>
@@ -180,7 +179,7 @@
         </ol>
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label><br>
-            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">正幻波ナノカ【JPN&ENG】　（ver-1.0.0）ダウンロード</a>
+            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">正幻波ナノカ【JPN&ENG】（ver-1.0.0）ダウンロード</a>
         </div>
     </div>
 
@@ -217,13 +216,19 @@
     if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
 
     const checkJack = document.getElementById('check-jack');
-    const dlJack = document.getElementById('dl-jack');
+    const dlJack1 = document.getElementById('dl-jackv1');
+    const dlJack2 = document.getElementById('dl-jackv2');
     const checkNanoka = document.getElementById('check-nanoka');
     const dlNanoka = document.getElementById('dl-nanoka');
 
     checkJack.addEventListener('change', function() {
-        dlJack.style.pointerEvents = this.checked ? 'auto' : 'none';
-        dlJack.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
+        const isActive = this.checked;
+        const color = isActive ? '#FC0254' : '#ccc';
+        const pointer = isActive ? 'auto' : 'none';
+        dlJack1.style.pointerEvents = pointer;
+        dlJack1.style.backgroundColor = color;
+        dlJack2.style.pointerEvents = pointer;
+        dlJack2.style.backgroundColor = color;
     });
     checkNanoka.addEventListener('change', function() {
         dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
