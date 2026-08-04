@@ -98,7 +98,6 @@
         .check-area { margin-bottom: 15px; font-size: 0.9rem; cursor: pointer; }
         .dl-btn {
             display: inline-block;
-            margin: 5px;
             padding: 12px 30px;
             color: white !important;
             text-decoration: none;
@@ -118,6 +117,7 @@
             color: var(--sub-text);
         }
 
+        /* SNSリンク設定 */
         .sns-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -148,9 +148,9 @@
     <div class="ch-section jack-border">
         <h3 class="jack-title">正弦波ジャック 利用規約</h3>
         <ol class="rule-list">
-            <li>1. 本家キャラとしての使用禁止<span>本音源を「マジックツリーハウス」のジャック本人として使用することは禁止します。</span></li>
-            <li>2. 音源データの改変禁止<span>本音源のデータ改変（icon.jpgを含む）は不可です。</span></li>
-            <li>3. 二次創作について<span>二次創作は歓迎します。</span></li><span>ただし「マジックツリーハウスのジャック」と同一人物として扱う表現は禁止します。</span><span>それ以外のクロスオーバー・共演・パロディは「マジックツリーハウス」でも他作品でも問題ありません。</span>
+            <li>マジックツリーハウス関連の禁止事項<span>児童書『マジックツリーハウス』のジャックとしての使用はできません。</span></li>
+            <li>音源データの改変禁止<span>データの改変は行わないでください。</span></li>
+            <li>二次創作について<span>大歓迎です！ただし、マジックツリーハウスのジャックと同一人物として扱う描写は禁止します。</span></li>
             <li>声質について<span>正弦波特有のロボ声を個性として楽しんでください。</span></li>
             <li>設定の追加・変更<span>プロフィールの追加はOKですが、公式設定自体の変更はNGです。</span></li>
             <li>再配布の禁止<span>音源データの再配布は一律禁止です。</span></li>
@@ -158,10 +158,10 @@
             <li>商用利用（デジタル作品）<span>上記すべての規約を守れる方のみ、デジタル作品での商用利用を許可します。</span></li>
         </ol>
         <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※著作権侵害（特に実体グッズ関連）をしない以外に無駄な責任は負いたくないので宜しくお願いします！</p>
+        </ol>
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label><br>
-            <a href="https://drive.google.com/file/d/1p9DCcw12aWY0wyjlFT05cpPU9tL1o_Fa/view?usp=sharing" id="dl-jackv1" class="dl-btn">正弦波ジャック【JPN&ENG】（ver-1.0.1）ダウンロード</a>
-            <a href="https://drive.google.com/file/d/188aDmKg1Yn0MGHhD_Vaps_Z6Hq0WD3iC/view?usp=sharing" id="dl-jackv2" class="dl-btn">正弦波ジャック【JPN&ENG】（ver-1.0.2）ダウンロード</a>
+            <a href="https://drive.google.com/file/d/1SoOsIn9nPLVyyoswbkJz9BGGtPBCnqbB/view?usp=drive_link" id="dl-jack" class="dl-btn">ダウンロード</a>
         </div>
     </div>
 
@@ -179,7 +179,7 @@
         </ol>
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label><br>
-            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">正幻波ナノカ【JPN&ENG】（ver-1.0.0）ダウンロード</a>
+            <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">ダウンロード</a>
         </div>
     </div>
 
@@ -216,19 +216,13 @@
     if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
 
     const checkJack = document.getElementById('check-jack');
-    const dlJack1 = document.getElementById('dl-jackv1');
-    const dlJack2 = document.getElementById('dl-jackv2');
+    const dlJack = document.getElementById('dl-jack');
     const checkNanoka = document.getElementById('check-nanoka');
     const dlNanoka = document.getElementById('dl-nanoka');
 
     checkJack.addEventListener('change', function() {
-        const isActive = this.checked;
-        const color = isActive ? '#FC0254' : '#ccc';
-        const pointer = isActive ? 'auto' : 'none';
-        dlJack1.style.pointerEvents = pointer;
-        dlJack1.style.backgroundColor = color;
-        dlJack2.style.pointerEvents = pointer;
-        dlJack2.style.backgroundColor = color;
+        dlJack.style.pointerEvents = this.checked ? 'auto' : 'none';
+        dlJack.style.backgroundColor = this.checked ? '#FC0254' : '#ccc';
     });
     checkNanoka.addEventListener('change', function() {
         dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
