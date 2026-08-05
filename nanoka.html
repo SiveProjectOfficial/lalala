@@ -31,11 +31,11 @@
             --text-color: #f0f0f0;
             --sub-text: #b0b0b0;
             --border-color: #333333;
-            --header-color: #50D8D8; /* ダークで見やすい色に調整 */
+            --header-color: #50D8D8; /* ★ここを #50D8D8 に修正★ */
             --gmail-link: #81d4fa;
             --sns-links: #81d4fa;
             --nav-bg: #1e1e1e;
-            --nav-border: #f0f0f0;  /* ★ダークモードの枠線（白） */
+            --nav-border: #ffffff;  /* ダークモードの枠線（白） */
             --nav-text: #ffffff;
         }
 
@@ -83,9 +83,9 @@
             border-right: none;
         }
 
-        /* アクティブボタン（正幻波ナノカ） */
+        /* アクティブボタン（正幻波ナノカ：変数連動） */
         .top-nav a.active-nanoka {
-            background-color: #016068;
+            background-color: var(--header-color);
             color: #ffffff;
         }
 
@@ -194,20 +194,20 @@
         /* --- SNSリンク：2列2行・アイコンと名前のセット --- */
         .sns-links {
           display: grid;
-          grid-template-columns: 1fr 1fr; /* 左右2列に固定 */
-          gap: 20px 10px;                 /* 縦の隙間20px、横の隙間10px */
-          justify-items: center;          /* 中央寄せ */
+          grid-template-columns: 1fr 1fr;
+          gap: 20px 10px;
+          justify-items: center;
           margin: 30px auto;
-          max-width: 320px;               /* 4つが綺麗に並ぶ幅 */
+          max-width: 320px;
         }
 
         .sns-links a {
           display: flex;
-          flex-direction: column;         /* 縦並び（アイコン→名前） */
-          align-items: center;            /* 中央揃え */
+          flex-direction: column;
+          align-items: center;
           text-decoration: none;
           color: var(--sns-links);
-          gap: 8px;                       /* アイコンと名前の隙間 */
+          gap: 8px;
           width: 100%;
         }
 
@@ -220,7 +220,7 @@
 
         .sns-links a span {
           font-size: 0.7rem;
-          white-space: nowrap;            /* 改行させない */
+          white-space: nowrap;
           text-align: center;
         }
 
