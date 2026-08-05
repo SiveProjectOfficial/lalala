@@ -114,17 +114,17 @@
         h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
         .ch-section { margin-bottom: 50px; padding: 20px; border-radius: 10px; }
         .jack-border { border: 2px solid #FC0254; }
-        .sei-border { border: 2px solid #8A2BE2; } /* 虚音セイ用枠線 */
+        .sei-border { border: 2px solid #FF00BF; } /* 虚音セイ用枠線（ライトモード） */
         .nanoka-border { border: 2px solid #0CBFBD; }
         
-        [data-theme="dark"] .sei-border { border-color: #B388FF; }
+        [data-theme="dark"] .sei-border { border-color: #FF9EE6; } /* 虚音セイ用枠線（ダークモード） */
 
         h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
         .jack-title { color: #FC0254; }
-        .sei-title { color: #8A2BE2; } /* 虚音セイ用タイトル */
+        .sei-title { color: #FF00BF; } /* 虚音セイ用タイトル（ライトモード） */
         .nanoka-title { color: #0CBFBD; }
 
-        [data-theme="dark"] .sei-title { color: #B388FF; }
+        [data-theme="dark"] .sei-title { color: #FF9EE6; } /* 虚音セイ用タイトル（ダークモード） */
 
         .rule-list { list-style: decimal; padding-left: 20px; }
         .rule-list li { margin-bottom: 12px; font-weight: bold; }
@@ -295,7 +295,7 @@
                     0329.mth@gmail.com
                 </span>
             </li>
-            <p style="color: #8A2BE2; font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
+            <p class="sei-title" style="font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
         </ol>
 
         <div class="dl-btn-container">
@@ -378,7 +378,7 @@
     });
     checkSei.addEventListener('change', function() {
         dlSei.style.pointerEvents = this.checked ? 'auto' : 'none';
-        dlSei.style.backgroundColor = this.checked ? '#8A2BE2' : '#ccc';
+        dlSei.style.backgroundColor = this.checked ? '#FF00BF' : '#ccc';
     });
     checkNanoka.addEventListener('change', function() {
         dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
