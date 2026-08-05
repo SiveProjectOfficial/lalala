@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta name="google-site-verification" content="HR5duaG7kJc7cPypTsmMkbR114Klfllj53-V0vN2vKE" />
-<link rel="canonical" href="https://siveprojectofficial.github.io/lalala/">
+    <link rel="canonical" href="https://siveprojectofficial.github.io/lalala/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SiveProject | UTAU音源公式サイト">
@@ -16,16 +16,15 @@
     <meta property="og:type" content="website">
 
     <meta name="description" content="UTAU音源配布サイト『SiveProject』の公式サイトです。正弦波ジャックと正幻波ナノカの情報を発信しています。">
-           <link rel="icon" href="IMG_2605.ICO" type="image/x-icon">
+    <link rel="icon" href="IMG_2605.ICO" type="image/x-icon">
     <link rel="shortcut icon" href="IMG_2605.ICO" type="image/x-icon">
     <link rel="apple-touch-icon" href="IMG_2605.ICO">
-
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiveProject | UTAU音源配布</title>
     <style>
-                /* --- 変数定義 --- */
+        /* --- 変数定義 --- */
         :root {
             /* ライトモード用 */
             --bg-color: #f4f7f9;
@@ -43,8 +42,11 @@
             --footer-label: #555555;
             --sub-text: #555555;
             
-            /* GmailとSNSの色を統一（ここでは例として #002AFF に設定） */
             --brand-color: #002AFF; 
+
+            --nav-bg: #f0f0f0;
+            --nav-border: #000000;  /* ライトモードの枠線（黒） */
+            --nav-text: #000000;
         }
 
         /* 手動切り替え（データ属性） */
@@ -55,6 +57,9 @@
             --accent-jack: #CF0000; --accent-nanoka: #016068;
             --footer-label: #555555; --sub-text: #555555;
             --brand-color: #002AFF;
+            --nav-bg: #f0f0f0;
+            --nav-border: #000000;
+            --nav-text: #000000;
         }
         [data-theme="dark"] {
             --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #f0f0f0;
@@ -63,9 +68,11 @@
             --accent-jack: #ff5c8d; --accent-nanoka: #4dd0e1;
             --footer-label: #cccccc; --sub-text: #b0b0b0;
             --brand-color: #81d4fa;
+            --nav-bg: #1e1e1e;
+            --nav-border: #f0f0f0;  /* ★ダークモードの枠線（白） */
+            --nav-text: #ffffff;
         }
 
-        
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
             margin: 0; padding: 0;
@@ -73,6 +80,47 @@
             color: var(--text-color);
             line-height: 1.8;
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* --- ヘッダーナビゲーション（上部固定・ダークモード対応） --- */
+        .top-nav {
+            display: flex;
+            width: 100%;
+            border-top: 2px solid var(--nav-border);
+            border-bottom: 2px solid var(--nav-border);
+            box-sizing: border-box;
+            background-color: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .top-nav a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-weight: bold;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            border-right: 1px solid var(--nav-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .top-nav a:last-child {
+            border-right: none;
+        }
+
+        /* アクティブボタン（ホーム） */
+        .top-nav a.active-home {
+            background-color: var(--text-color);
+            color: var(--card-bg);
         }
 
         header {
@@ -155,7 +203,6 @@
         .news-item:last-child { border-bottom: none; }
         .news-date { color: var(--news-date); font-family: monospace; flex-shrink: 0; }
         .news-text { flex-grow: 1; }
-        /* 追加：隠すためのスタイル */
         .news-item.hidden { display: none; }
 
         .container {
@@ -237,37 +284,32 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* SNSリンク全体の設定 */
-.sns-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px 10px;               
-  justify-items: center;          
-  margin: 30px auto;
-  max-width: 320px;               
-}
+        .sns-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px 10px;               
+            justify-items: center;          
+            margin: 30px auto;
+            max-width: 320px;               
+        }
 
-/* リンクそのものに色を適用する */
-.sns-links a {
-  display: flex;
-  flex-direction: column;         
-  align-items: center;           
-  width: 100%;
-  color: var(--brand-color); /* これをここに書く！ */
-  text-decoration: none;     /* 下線を消す */
-}
+        .sns-links a {
+            display: flex;
+            flex-direction: column;         
+            align-items: center;           
+            width: 100%;
+            color: var(--brand-color);
+            text-decoration: none;
+        }
 
-/* もしリンクをホバーした時に色を変えたいならこれ */
-.sns-links a:hover {
-  opacity: 0.7;
-}
+        .sns-links a:hover {
+            opacity: 0.7;
+        }
 
-/* Gmailリンクの設定 */
-.footer-gmail-link {
-    color: var(--brand-color);
-    text-decoration: none;
-}
-
+        .footer-gmail-link {
+            color: var(--brand-color);
+            text-decoration: none;
+        }
 
         @media (max-width: 768px) { 
             .character-card { flex-direction: column; text-align: center; }
@@ -278,26 +320,33 @@
 </head>
 <body data-theme="light">
 
+<!-- 固定ヘッダーメニュー -->
+<nav class="top-nav">
+  <a href="index.html" class="active-home">ホーム</a>
+  <a href="jack.html">正弦波<br>ジャック</a>
+  <a href="nanoka.html">正幻波<br>ナノカ</a>
+  <a href="rules.html">利用規約</a>
+</nav>
+
 <header>
     <button class="theme-toggle-header" onclick="toggleTheme()" title="モード切り替え">🔆 / 🌙</button>
-<div style="text-align:center; margin-top:20px;">
-  <img src="無題187_20260805161156.png" alt="Sive" style="width:300px;">
-</div>
+    <div style="text-align:center; margin-top:20px;">
+      <img src="無題187_20260805161156.png" alt="Sive" style="width:300px;">
+    </div>
 
     <p>正弦波くんとナノカの音源を配布しています。</p>
     <div class="site-info-box">
         <div style="margin-bottom: 10px;">
-               <p><b>本サイトで取得する情報について</b></p>
+            <p><b>本サイトで取得する情報について</b></p>
             <div><p>本サイトでは画面表示設定（外観モード設定）のみの情報を取得します。</p></div>
-        <div style="margin-bottom: 10px;">
-            <p><b>外部サービスの使用について</b></p>
-            <div><br>音源配布にはGoogle Driveを使用していますが、こちら側にGoogleアカウントが表示されることはありません。</br></div>
-            <div><br>お問い合わせ用のGmailについても、アカウント情報を保存・悪用することはありません。</br></div>
-            <div><br>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</br></div>
+            <div style="margin-bottom: 10px;">
+                <p><b>外部サービスの使用について</b></p>
+                <div><br>音源配布にはGoogle Driveを使用していますが、こちら側にGoogleアカウントが表示されることはありません。</br></div>
+                <div><br>お問い合わせ用のGmailについても、アカウント情報を保存・悪用することはありません。</br></div>
+                <div><br>そもそも管理者は自分のGmailも覚えられません、悪用の仕方も知りません。</br></div>
+            </div>
         </div>
-        </div><p><b>
-            ※サイト内の全ての画像は長押し等で保存可能です。（改変可）</b></p>
-        </div>
+        <p><b>※サイト内の全ての画像は長押し等で保存可能です。（改変可）</b></p>
     </div>
 </header>
 
@@ -308,6 +357,7 @@
             <li class="news-item">
                 <span class="news-date">2026.08.5</span>
                 <span class="news-text">サイトを一部改修しました。正弦波ジャックの利用規約を一部更新しました。<br>これにより「正弦波ジャック【JPN&ENG】（ver-1.0.3）を配布します。<br>readme.txtの「利用規約」と「連絡先等」の部分を変更しましたのでUTAU・OpenUTAUにてご確認お願いいたします。</span>
+            </li>
             <li class="news-item hidden">
                 <span class="news-date">2026.07.01</span>
                 <span class="news-text">サイトを一部改修しました。正弦波ジャック【JPN&ENG】（ver-1.0.2）配布開始！より滑らかに歌わせられます！</span>
@@ -393,6 +443,7 @@
         </section>
     </div>
 </main>
+
 <div style="text-align:center; margin:30px 0;">
   <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
     <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
@@ -400,21 +451,21 @@
 </div>
 
 <footer>
-        <div class="sns-links">
-  <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
-  </a>
-  <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）">Sive【ららら】
-  </a>
-  <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
-    <img src="無題127_20260525185536.png" alt="YouTube">Sive【ららら】
-  </a>
-  <a href="https://x.com/sivelalala?s=21" target="_blank">
-    <img src="無題127_20260525185538.png" alt="X">Sive【ららら】
-  </a>
-</div>
-        <div style="margin-bottom: 20px;">
+    <div class="sns-links">
+      <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
+        <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
+      </a>
+      <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
+        <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）">Sive【ららら】
+      </a>
+      <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
+        <img src="無題127_20260525185536.png" alt="YouTube">Sive【ららら】
+      </a>
+      <a href="https://x.com/sivelalala?s=21" target="_blank">
+        <img src="無題127_20260525185538.png" alt="X">Sive【ららら】
+      </a>
+    </div>
+    <div style="margin-bottom: 20px;">
         <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
     </div>
     <div style="margin-bottom: 25px;">
@@ -426,7 +477,6 @@
 </footer>
 
 <script>
-    // 追加：もっと見る機能
     const moreBtn = document.getElementById('more-btn');
     const hiddenItems = document.querySelectorAll('.news-item.hidden');
     moreBtn.addEventListener('click', () => {
