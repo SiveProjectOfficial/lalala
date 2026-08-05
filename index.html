@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- ★画面が表示される前にテーマを決定するスクリプト（チラつき防止） -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+        })();
+    </script>
+
     <meta name="google-site-verification" content="HR5duaG7kJc7cPypTsmMkbR114Klfllj53-V0vN2vKE" />
     <link rel="canonical" href="https://siveprojectofficial.github.io/lalala/">
 
@@ -318,7 +328,8 @@
         }
     </style>
 </head>
-<body data-theme="light">
+<!-- ★data-theme="light" を削除（画面が開く前にJSが自動決定するため） -->
+<body>
 
 <!-- 固定ヘッダーメニュー -->
 <nav class="top-nav">
@@ -484,26 +495,26 @@
         moreBtn.style.display = 'none';
     });
 
-    const body = document.body;
     const toggleBtn = document.querySelector('.theme-toggle-header');
 
+    // ★htmlタグとbodyタグの両方に適用して、ボタンのアイコンも更新する関数
     const applyTheme = (theme) => {
-        body.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
         if (toggleBtn) toggleBtn.textContent = theme === 'dark' ? '🌙' : '🔆';
         localStorage.setItem('theme', theme);
     };
 
     function toggleTheme() {
-        const currentTheme = body.getAttribute('data-theme');
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(nextTheme);
     }
 
-    (function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
-        applyTheme(initialTheme);
+    // 読み込み完了時にボタンのアイコン表示を初期化
+    (function initButtonState() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        applyTheme(currentTheme);
     })();
 </script>
 
