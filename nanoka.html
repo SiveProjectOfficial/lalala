@@ -31,7 +31,7 @@
             --text-color: #f0f0f0;
             --sub-text: #b0b0b0;
             --border-color: #333333;
-            --header-color: #50D8D8; /* ★ここを #50D8D8 に修正★ */
+            --header-color: #50D8D8;
             --gmail-link: #81d4fa;
             --sns-links: #81d4fa;
             --nav-bg: #1e1e1e;
@@ -83,10 +83,15 @@
             border-right: none;
         }
 
-        /* アクティブボタン（正幻波ナノカ：変数連動） */
+        /* アクティブボタン（ライトモード選択中の文字色） */
         .top-nav a.active-nanoka {
             background-color: var(--header-color);
-            color: #ffffff;
+            color: #ffffff; /* ★ライトモードで選択されている時の文字色 */
+        }
+
+        /* アクティブボタン（ダークモード選択中の文字色） */
+        [data-theme="dark"] .top-nav a.active-nanoka {
+            color: #000000; /* ★ダークモードで選択されている時の文字色 */
         }
 
         .container {
