@@ -16,16 +16,16 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SiveProject | UTAU音源公式サイト">
-    <meta name="twitter:description" content="正弦波ジャック（正弦波くん）と正幻波ナノカの公式配布サイトです。">
+    <meta name="twitter:description" content="正弦波ジャック（正弦波くん）、正幻波ナノカ、虚音セイの公式配布サイトです。">
     <meta name="twitter:image" content="https://siveprojectofficial.github.io/lalala/image/card.png.PNG">
     
     <meta property="og:title" content="SiveProject | UTAU音源公式サイト">
-    <meta property="og:description" content="正弦波ジャック（正弦波くん）と正幻波ナノカの公式配布サイトです。">
+    <meta property="og:description" content="正弦波ジャック（正弦波くん）、正幻波ナノカ、虚音セイの公式配布サイトです。">
     <meta property="og:image" content="https://siveprojectofficial.github.io/lalala/image/card.png.PNG">
     <meta property="og:url" content="https://siveprojectofficial.github.io/lalala/">
     <meta property="og:type" content="website">
 
-    <meta name="description" content="UTAU音源配布サイト『SiveProject』の公式サイトです。正弦波ジャックと正幻波ナノカの情報を発信しています。">
+    <meta name="description" content="UTAU音源配布サイト『SiveProject』の公式サイトです。正弦波ジャック、正幻波ナノカ、虚音セイの情報を発信しています。">
     <link rel="icon" href="IMG_2605.ICO" type="image/x-icon">
     <link rel="shortcut icon" href="IMG_2605.ICO" type="image/x-icon">
     <link rel="apple-touch-icon" href="IMG_2605.ICO">
@@ -47,6 +47,7 @@
             --news-date: #606060;
 
             --accent-jack: #CF0000;   
+            --accent-sei: #8A2BE2; /* 虚音セイ用アクセントカラー */
             --accent-nanoka: #016068;
             
             --footer-label: #555555;
@@ -64,7 +65,7 @@
             --bg-color: #f4f7f9; --card-bg: #ffffff; --text-color: #1a1a1a;
             --border-color: #eaeaea; --rule-bg: #fff0f0; --rule-border: #ffcccc;
             --info-bg: #fdfdfd; --news-date: #606060;
-            --accent-jack: #CF0000; --accent-nanoka: #016068;
+            --accent-jack: #CF0000; --accent-sei: #8A2BE2; --accent-nanoka: #016068;
             --footer-label: #555555; --sub-text: #555555;
             --brand-color: #002AFF;
             --nav-bg: #f0f0f0;
@@ -75,7 +76,7 @@
             --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #f0f0f0;
             --border-color: #333333; --rule-bg: #2d1a1a; --rule-border: #5c2b2b;
             --info-bg: #252525; --news-date: #b0b0b0;
-            --accent-jack: #ff5c8d; --accent-nanoka: #4dd0e1;
+            --accent-jack: #ff5c8d; --accent-sei: #b388ff; --accent-nanoka: #4dd0e1;
             --footer-label: #cccccc; --sub-text: #b0b0b0;
             --brand-color: #81d4fa;
             --nav-bg: #1e1e1e;
@@ -264,9 +265,11 @@
         .detail-btn:hover { opacity: 0.8; transform: translateY(-2px); }
         
         .btn-jack { background-color: var(--accent-jack); }
+        .btn-sei { background-color: var(--accent-sei); }
         .btn-nanoka { background-color: var(--accent-nanoka); }
         
         .accent-jack { color: var(--accent-jack); font-weight: bold; }
+        .accent-sei { color: var(--accent-sei); font-weight: bold; }
         .accent-nanoka { color: var(--accent-nanoka); font-weight: bold; }
 
         .rules-section {
@@ -354,7 +357,7 @@
       <img src="無題187_20260805161156.png" alt="Sive" style="width:300px;">
     </div>
 
-    <p>正弦波くんとナノカの音源を配布しています。</p>
+    <p>正弦波くん、ナノカ、セイの音源を配布しています。</p>
     
     <div class="site-info-box">
         <div style="margin-bottom: 12px;">
@@ -421,6 +424,7 @@
     </div>
 
     <div class="container">
+        <!-- 正弦波ジャック -->
         <div class="character-card">
             <div class="char-info">
                 <h3>正弦波ジャック（正弦波くん）</h3>
@@ -440,6 +444,26 @@
             </div>
         </div>
 
+        <!-- 虚音セイ -->
+        <div class="character-card">
+            <div class="char-info">
+                <h3>虚音セイ</h3>
+                <ul>
+                    <h4 style="margin-bottom: 0;">導入手順は正弦波くんと同じです。</h4> 
+                    <h4 class="accent-sei">正弦波くんと同じ加算合成音声です。</h4>
+                </ul>
+                <div class="sample-player">
+                    <p style="font-size: 0.7rem; margin-bottom: 5px; opacity: 0.7;">🎵 音声サンプル：きらきら星</p>
+                    <audio controls src="image/セイキラキラ星.wav" style="width: 100%; height: 35px;"></audio>
+                </div>
+                <a href="sei.html" class="detail-btn btn-sei">プロフを見る</a>
+            </div>
+            <div class="char-img-container">
+                <img src="image/IMG_2141.webp" alt="虚音セイ" class="char-img">
+            </div>
+        </div>
+
+        <!-- 正幻波ナノカ -->
         <div class="character-card">
             <div class="char-info">
                 <h3>正幻波ナノカ</h3>
