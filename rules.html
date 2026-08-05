@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <!-- ★画面が表示される前にテーマを決定するスクリプト（チラつき防止） -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+        })();
+    </script>
+
     <meta name="description" content="SiveProjectの音源利用規約およびダウンロードページです。ご利用の前に必ず内容のご確認をお願いいたします。">
     <link rel="icon" href="IMG_1749.ico">
     <link rel="apple-touch-icon" href="IMG_1749.ico">
@@ -162,7 +172,8 @@
         .sns-links a span { font-size: 0.7rem; white-space: nowrap; text-align: center; }
     </style>
 </head>
-<body data-theme="light">
+<!-- ★data-theme="light" を削除（画面が開く前にJSが決定するため） -->
+<body>
 
 <!-- 固定ヘッダーメニュー -->
 <nav class="top-nav">
@@ -313,11 +324,10 @@
 </footer>
 
 <script>
-    (function initTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
-        document.body.setAttribute('data-theme', initialTheme);
+    // ★bodyタグにもテーマ属性を付与して同期する
+    (function syncTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        document.body.setAttribute('data-theme', currentTheme);
     })();
 
     const checkJack = document.getElementById('check-jack');
