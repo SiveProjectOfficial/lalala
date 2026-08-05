@@ -62,10 +62,11 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- ヘッダーナビゲーション（上部固定・ダークモード対応） --- */
+        /* --- ヘッダーナビゲーション（上部固定・ border-top を加えて枠線を統一） --- */
         .top-nav {
             display: flex;
             width: 100%;
+            border-top: 2px solid var(--nav-border);
             border-bottom: 2px solid var(--nav-border);
             box-sizing: border-box;
             background-color: var(--nav-bg);
@@ -96,21 +97,10 @@
             border-right: none;
         }
 
-        /* アクティブボタン（正弦波ジャック） */
+        /* アクティブボタン（正弦波くん専用レッド） */
         .top-nav a.active-jack {
             background-color: var(--jack-active-bg);
             color: var(--jack-active-text);
-        }
-
-        /* 他ページ用アクティブ指定例 */
-        .top-nav a.active-nanoka {
-            background-color: #4cd5d6;
-            color: #000000;
-        }
-        .top-nav a.active-home,
-        .top-nav a.active-rules {
-            background-color: var(--text-color);
-            color: var(--container-bg);
         }
 
         .container {
@@ -251,7 +241,6 @@
         }
     </style>
 </head>
-<!-- ★data-theme="light" を削除（画面が開く前にJSが決定するため） -->
 <body>
 
 <!-- 固定ヘッダーメニュー -->
@@ -262,11 +251,10 @@
   <a href="rules.html">利用規約</a>
 </nav>
 
-
 <main class="container">
     <div style="display:flex; justify-content:flex-end; align-items:center; padding:10px 15px;">
-  <img src="無題187_20260805161156.png" alt="Siveロゴ" style="width:120px;">
-</div>
+      <img src="無題187_20260805161156.png" alt="Siveロゴ" style="width:120px;">
+    </div>
     <img src="image/IMG_2140.webp" alt="正弦波ジャックの立ち絵" class="main-img" width="1080" height="1920">
 
     <h2>正弦波ジャック</h2>
