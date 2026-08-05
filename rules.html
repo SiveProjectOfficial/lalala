@@ -21,7 +21,6 @@
             --nav-bg: #f0f0f0;
             --nav-border: #000000;
             --nav-text: #000000;
-            --header-color: #444444; /* 利用規約アクティブ時の背景色 */
         }
 
         /* ダークモード */
@@ -37,7 +36,6 @@
             --nav-bg: #1e1e1e;
             --nav-border: #ffffff;
             --nav-text: #ffffff;
-            --header-color: #888888; /* ダークモード時利用規約アクティブ背景 */
         }
 
         body {
@@ -49,7 +47,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- ヘッダーナビゲーション（上部固定・全ページ共通） --- */
+        /* --- ヘッダーナビゲーション（上部固定） --- */
         .top-nav {
             display: flex;
             width: 100%;
@@ -84,15 +82,10 @@
             border-right: none;
         }
 
-        /* アクティブボタン（利用規約：ライトモード） */
+        /* アクティブボタン（利用規約：トップページと同じ背景色反転スタイル） */
         .top-nav a.active-rules {
-            background-color: var(--header-color);
-            color: #ffffff;
-        }
-
-        /* アクティブボタン（利用規約：ダークモード） */
-        [data-theme="dark"] .top-nav a.active-rules {
-            color: #000000;
+            background-color: var(--text-color);
+            color: var(--container-bg);
         }
 
         .container {
