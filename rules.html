@@ -31,6 +31,8 @@
             --nav-bg: #f0f0f0;
             --nav-border: #000000;
             --nav-text: #000000;
+            --rules-active-bg: var(--text-color); /* ライトモードの背景色 */
+            --rules-active-text: var(--container-bg); /* ライトモードの文字色 */
         }
 
         /* ダークモード */
@@ -46,6 +48,8 @@
             --nav-bg: #1e1e1e;
             --nav-border: #ffffff;
             --nav-text: #ffffff;
+            --rules-active-bg: #F0F0F0; /* ★ダークモード時の指定背景色 */
+            --rules-active-text: #000000; /* 背景が明るいので文字色を黒に設定 */
         }
 
         body {
@@ -92,10 +96,10 @@
             border-right: none;
         }
 
-        /* アクティブボタン（利用規約：トップページと同じ背景色反転スタイル） */
+        /* アクティブボタン（利用規約） */
         .top-nav a.active-rules {
-            background-color: var(--text-color);
-            color: var(--container-bg);
+            background-color: var(--rules-active-bg);
+            color: var(--rules-active-text);
         }
 
         .container {
@@ -172,7 +176,6 @@
         .sns-links a span { font-size: 0.7rem; white-space: nowrap; text-align: center; }
     </style>
 </head>
-<!-- ★data-theme="light" を削除（画面が開く前にJSが決定するため） -->
 <body>
 
 <!-- 固定ヘッダーメニュー -->
