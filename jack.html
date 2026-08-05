@@ -19,6 +19,9 @@
             --header-color: #CF0000; /* 正弦波くん指定カラー */
             --gmail-link: #002AFF;   /* Gmail指定カラー */
             --sns-links: #002AFF;
+            --nav-bg: #f0f0f0;
+            --nav-border: #000000;
+            --nav-text: #000000;
         }
 
         /* ダークモード */
@@ -31,6 +34,9 @@
             --header-color: #ff5c8d; /* ダークで見やすい色に調整 */
             --gmail-link: #81d4fa;
             --sns-links: #81d4fa;
+            --nav-bg: #2a2a2a;
+            --nav-border: #444444;
+            --nav-text: #ffffff;
         }
 
         body {
@@ -42,13 +48,17 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- ヘッダーナビゲーション --- */
+        /* --- ヘッダーナビゲーション（上部固定・ダークモード対応） --- */
         .top-nav {
             display: flex;
             width: 100%;
-            border-bottom: 2px solid #000;
+            border-bottom: 2px solid var(--nav-border);
             box-sizing: border-box;
-            background-color: #f0f0f0;
+            background-color: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .top-nav a {
@@ -56,15 +66,16 @@
             text-align: center;
             padding: 10px 0;
             text-decoration: none;
-            color: #000;
+            color: var(--nav-text);
             font-weight: bold;
             font-size: 0.85rem;
             line-height: 1.2;
-            border-right: 1px solid #000;
+            border-right: 1px solid var(--nav-border);
             display: flex;
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
         .top-nav a:last-child {
@@ -74,7 +85,18 @@
         /* アクティブボタン（正弦波ジャック：赤） */
         .top-nav a.active-jack {
             background-color: #ff0000;
-            color: #000;
+            color: #ffffff;
+        }
+
+        /* 他ページ用アクティブ指定例（必要に応じて他ページ側で記述） */
+        .top-nav a.active-nanoka {
+            background-color: #4cd5d6;
+            color: #000000;
+        }
+        .top-nav a.active-home,
+        .top-nav a.active-rules {
+            background-color: var(--text-color);
+            color: var(--container-bg);
         }
 
         .container {
@@ -217,7 +239,7 @@
 </head>
 <body data-theme="light">
 
-<!-- ヘッダーメニュー -->
+<!-- 固定ヘッダーメニュー -->
 <nav class="top-nav">
   <a href="index.html">ホーム</a>
   <a href="jack.html" class="active-jack">正弦波<br>ジャック</a>
