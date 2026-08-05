@@ -145,20 +145,22 @@
         h2 { font-size: 1.5rem; margin-top: 0; }
         h3 { font-size: 1.2rem; margin-top: 0; }
 
+        /* ★モード切り替えボタン（押しやすく拡大） */
         .theme-toggle-header {
             position: absolute;
             top: 15px;
             right: 15px;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 10px 22px;
+            border-radius: 30px;
             cursor: pointer;
             background: var(--bg-color);
             color: var(--text-color);
-            border: 1px solid var(--border-color);
-            font-size: 0.85rem;
+            border: 2px solid var(--border-color);
+            font-size: 1.3rem;
             font-weight: bold;
             transition: 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            line-height: 1;
         }
 
         .site-info-box {
@@ -323,12 +325,18 @@
 
         @media (max-width: 768px) { 
             .character-card { flex-direction: column; text-align: center; }
-            .theme-toggle-header { position: static; margin-top: 15px; display: inline-block; }
+            .theme-toggle-header { 
+                position: static; 
+                margin-top: 10px; 
+                margin-bottom: 10px; 
+                display: inline-block; 
+                padding: 12px 28px;
+                font-size: 1.5rem;
+            }
             .news-item { flex-direction: column; gap: 2px; }
         }
     </style>
 </head>
-<!-- ★data-theme="light" を削除（画面が開く前にJSが自動決定するため） -->
 <body>
 
 <!-- 固定ヘッダーメニュー -->
@@ -347,7 +355,7 @@
 
     <p>正弦波くんとナノカの音源を配布しています。</p>
     
-            <div class="site-info-box">
+    <div class="site-info-box">
         <div style="margin-bottom: 12px;">
             <p style="margin: 0;"><b>本サイトで取得する情報について</b></p>
             <p style="margin: 0;">本サイトでは画面表示設定（外観モード設定）のみの情報を取得します。</p>
