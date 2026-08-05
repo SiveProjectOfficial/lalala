@@ -18,33 +18,13 @@
             --section-bg: #fdfdfd;
             --sns-links: #002AFF;
             --gmail-color: #002AFF;
+            --nav-bg: #f0f0f0;
+            --nav-border: #000000;
+            --nav-text: #000000;
+            --header-color: #444444; /* 利用規約アクティブ時の背景色 */
         }
 
         /* ダークモード */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --container-bg: #1e1e1e;
-                --text-color: #e0e0e0;
-                --sub-text: #bbbbbb;
-                --border-color: #333333;
-                --section-bg: #252525;
-                --sns-links: #81d4fa;
-                --gmail-color: #81d4fa;
-            }
-        }
-
-        /* テーマ切り替え用の明示的な指定 */
-        [data-theme="light"] {
-            --bg-color: #fffafa;
-            --container-bg: #ffffff;
-            --text-color: #000000;
-            --sub-text: #444444;
-            --border-color: #eeeeee;
-            --section-bg: #fdfdfd;
-            --sns-links: #002AFF;
-            --gmail-color: #002AFF;
-        }
         [data-theme="dark"] {
             --bg-color: #121212;
             --container-bg: #1e1e1e;
@@ -54,6 +34,10 @@
             --section-bg: #252525;
             --sns-links: #81d4fa;
             --gmail-color: #81d4fa;
+            --nav-bg: #1e1e1e;
+            --nav-border: #ffffff;
+            --nav-text: #ffffff;
+            --header-color: #888888; /* ダークモード時利用規約アクティブ背景 */
         }
 
         body {
@@ -62,7 +46,53 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.8;
-            transition: 0.3s;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* --- ヘッダーナビゲーション（上部固定・全ページ共通） --- */
+        .top-nav {
+            display: flex;
+            width: 100%;
+            border-top: 2px solid var(--nav-border);
+            border-bottom: 2px solid var(--nav-border);
+            box-sizing: border-box;
+            background-color: var(--nav-bg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .top-nav a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            text-decoration: none;
+            color: var(--nav-text);
+            font-weight: bold;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            border-right: 1px solid var(--nav-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .top-nav a:last-child {
+            border-right: none;
+        }
+
+        /* アクティブボタン（利用規約：ライトモード） */
+        .top-nav a.active-rules {
+            background-color: var(--header-color);
+            color: #ffffff;
+        }
+
+        /* アクティブボタン（利用規約：ダークモード） */
+        [data-theme="dark"] .top-nav a.active-rules {
+            color: #000000;
         }
 
         .container {
@@ -139,12 +169,20 @@
         .sns-links a span { font-size: 0.7rem; white-space: nowrap; text-align: center; }
     </style>
 </head>
-<body>
+<body data-theme="light">
+
+<!-- 固定ヘッダーメニュー -->
+<nav class="top-nav">
+  <a href="index.html">ホーム</a>
+  <a href="jack.html">正弦波<br>ジャック</a>
+  <a href="nanoka.html">正幻波<br>ナノカ</a>
+  <a href="rules.html" class="active-rules">利用規約</a>
+</nav>
 
 <main class="container">
     <div style="display:flex; justify-content:flex-end; align-items:center; padding:10px 15px;">
-  <img src="無題187_20260805161156.png" alt="Siveロゴ" style="width:120px;">
-</div>
+      <img src="無題187_20260805161156.png" alt="Siveロゴ" style="width:120px;">
+    </div>
     <h2>利用規約</h2>
     <p style="text-align: center;">規約を最後まで確認し、同意いただける方のみダウンロードしてください。</p>
 
@@ -152,77 +190,76 @@
         <h3 class="jack-title">正弦波ジャック 利用規約</h3>
         <ol class="rule-list">
             <li>本家キャラとしての使用禁止
-  <span>
-    本音源を「マジックツリーハウス」のジャック本人として使用することは禁止します。
-  </span>
-</li>
+              <span>
+                本音源を「マジックツリーハウス」のジャック本人として使用することは禁止します。
+              </span>
+            </li>
 
-<li>音源データの改変禁止
-  <span>
-    本音源のデータ改変（icon.jpgを含む）は不可です。
-  </span>
-</li>
+            <li>音源データの改変禁止
+              <span>
+                本音源のデータ改変（icon.jpgを含む）は不可です。
+              </span>
+            </li>
 
-<li>二次創作について
-  <span>
-    二次創作は歓迎します。<br>
-    ただし「マジックツリーハウスのジャック」と同一人物として扱う表現は禁止します。<br>
-    それ以外のクロスオーバー・共演・パロディは「マジックツリーハウス」でも他作品でも問題ありません。
-  </span>
-</li>
+            <li>二次創作について
+              <span>
+                二次創作は歓迎します。<br>
+                ただし「マジックツリーハウスのジャック」と同一人物として扱う表現は禁止します。<br>
+                それ以外のクロスオーバー・共演・パロディは「マジックツリーハウス」でも他作品でも問題ありません。
+              </span>
+            </li>
 
-<li>音質特性について
-  <span>
-    本音源はUTAU＋正弦波のため、ロボ声寄りの音質になります。了承の上でご使用ください。
-  </span>
-</li>
+            <li>音質特性について
+              <span>
+                本音源はUTAU＋正弦波のため、ロボ声寄りの音質になります。了承の上でご使用ください。
+              </span>
+            </li>
 
-<li>プロフィールの扱い
-  <span>
-    正弦波ジャックのプロフィールを楽曲用・二次創作用に追加することは可能です。<br>
-    ただし既存の設定（性格・年齢など）を改変することはできません。
-  </span>
-</li>
+            <li>プロフィールの扱い
+              <span>
+                正弦波ジャックのプロフィールを楽曲用・二次創作用に追加することは可能です。<br>
+                ただし既存の設定（性格・年齢など）を改変することはできません。
+              </span>
+            </li>
 
-<li>再配布禁止
-  <span>
-    本音源の原音ファイルの再配布・転載・ミラー配布・再アップロードは一切禁止します。<br>
-    配布は必ず公式配布ページのみとし、原音ファイルを第三者へ渡す行為も禁止します。
-  </span>
-</li>
+            <li>再配布禁止
+              <span>
+                本音源の原音ファイルの再配布・転載・ミラー配布・再アップロードは一切禁止します。<br>
+                配布は必ず公式配布ページのみとし、原音ファイルを第三者へ渡す行為も禁止します。
+              </span>
+            </li>
 
-<li>グッズ販売の禁止
-  <span>
-    正弦波ジャックを使用したグッズ販売（物理・デジタル問わず）は禁止します。
-  </span>
-</li>
+            <li>グッズ販売の禁止
+              <span>
+                正弦波ジャックを使用したグッズ販売（物理・デジタル問わず）は禁止します。
+              </span>
+            </li>
 
-<li>商用利用について
-  <span>
-    商用利用はYouTubeなどの動画プラットフォームでの広告収益化のみ許可します。<br>
-    複数人で制作した楽曲の場合、広告収益の分配については制作した方々で話し合って決めてください。<br>
-    スポンサー案件、タイアップ、有料配布、有料イベント、グッズ販売など、その他の商用利用はすべて禁止します。
-  </span>
-</li>
+            <li>商用利用について
+              <span>
+                商用利用はYouTubeなどの動画プラットフォームでの広告収益化のみ許可します。<br>
+                複数人で制作した楽曲の場合、広告収益の分配については制作した方々で話し合って決めてください。<br>
+                スポンサー案件、タイアップ、有料配布、有料イベント、グッズ販売など、その他の商用利用はすべて禁止します。
+              </span>
+            </li>
 
-<li>広告収益化時の表記
-  <span>
-    使用音源：正弦波ジャック（UTAU音源）<br>
-    制作：【Sive】ららら<br>
-    本キャラクターは「マジックツリーハウス」のジャックとは無関係のオリジナルキャラクターです。
-  </span>
-</li>
+            <li>広告収益化時の表記
+              <span>
+                使用音源：正弦波ジャック（UTAU音源）<br>
+                制作：【Sive】ららら<br>
+                本キャラクターは「マジックツリーハウス」のジャックとは無関係のオリジナルキャラクターです。
+              </span>
+            </li>
 
-<li>問い合わせ先
-  <span>
-    0329.mth@gmail.com
-  </span>
-</li>
+            <li>問い合わせ先
+              <span>
+                0329.mth@gmail.com
+              </span>
+            </li>
 
- <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
-
-
+            <p style="color: #FC0254; font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
         </ol>
+
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-jack"> 正弦波ジャックの規約に同意する</label><br>
             <a href="https://drive.google.com/file/d/1BQOyvkSEG-u5pjiLT88C5f55LHHll5Rr/view?usp=drive_link" id="dl-jack" class="dl-btn">ダウンロード</a>
@@ -245,8 +282,9 @@
                     0329.mth@gmail.com
                 </span>
             </li>
-             <p style="color: #09BFBD; font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
+            <p style="color: #09BFBD; font-weight: bold; font-size: 0.9rem;">※本規約は法的助言ではありません。商用利用や権利関係で不安がある場合は専門家に相談してください。</p>
         </ol>
+
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-nanoka"> 正幻波ナノカの規約に同意する</label><br>
             <a href="https://drive.google.com/file/d/1JuWuyCWI31jgzOWDDDaE4jrfQKfZ-UpH/view?usp=sharing" id="dl-nanoka" class="dl-btn">ダウンロード</a>
@@ -282,8 +320,12 @@
 </footer>
 
 <script>
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) document.body.setAttribute('data-theme', savedTheme);
+    (function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const osPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (osPrefersDark ? 'dark' : 'light');
+        document.body.setAttribute('data-theme', initialTheme);
+    })();
 
     const checkJack = document.getElementById('check-jack');
     const dlJack = document.getElementById('dl-jack');
