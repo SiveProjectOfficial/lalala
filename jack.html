@@ -42,6 +42,41 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        /* --- ヘッダーナビゲーション --- */
+        .top-nav {
+            display: flex;
+            width: 100%;
+            border-bottom: 2px solid #000;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+
+        .top-nav a {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            border-right: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .top-nav a:last-child {
+            border-right: none;
+        }
+
+        /* アクティブボタン（正弦波ジャック：赤） */
+        .top-nav a.active-jack {
+            background-color: #ff0000;
+            color: #000;
+        }
+
         .container {
             max-width: 600px;
             margin: 40px auto;
@@ -81,7 +116,7 @@
 
         .main-img {
             width: 100%;
-            height: auto; /* CSSではレスポンシブにする */
+            height: auto;
             margin-bottom: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -141,38 +176,39 @@
             font-weight: bold;
         }
 
-        /* --- SNSリンク：2列2行・アイコンと名前のセット --- */
-.sns-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 左右2列に固定 */
-  gap: 20px 10px;                 /* 縦の隙間20px、横の隙間10px */
-  justify-items: center;          /* 中央寄せ */
-  margin: 30px auto;
-  max-width: 320px;               /* 4つが綺麗に並ぶ幅 */
-}
+        /* --- SNSリンク：2列2行 --- */
+        .sns-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 10px;
+            justify-items: center;
+            margin: 30px auto;
+            max-width: 320px;
+        }
 
-.sns-links a {
-  display: flex;
-  flex-direction: column;         /* 縦並び（アイコン→名前） */
-  align-items: center;            /* 中央揃え */
-  text-decoration: none;
-  color: var(--sns-links);
-  gap: 8px;                       /* アイコンと名前の隙間 */
-  width: 100%;
-}
+        .sns-links a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--sns-links);
+            gap: 8px;
+            width: 100%;
+        }
 
-.sns-links a img {
-  width: 45px;
-  height: 45px;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
+        .sns-links a img {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
 
-.sns-links a span {
-  font-size: 0.7rem;
-  white-space: nowrap;            /* 改行させない */
-  text-align: center;
-}
+        .sns-links a span {
+            font-size: 0.7rem;
+            white-space: nowrap;
+            text-align: center;
+        }
+
         @media (max-width: 600px) {
             .container { margin: 20px 10px; padding: 20px; }
             h2 { font-size: 1.8rem; }
@@ -180,6 +216,15 @@
     </style>
 </head>
 <body data-theme="light">
+
+<!-- ヘッダーメニュー -->
+<nav class="top-nav">
+  <a href="index.html">ホーム</a>
+  <a href="jack.html" class="active-jack">正弦波<br>ジャック</a>
+  <a href="nanoka.html">正幻波<br>ナノカ</a>
+  <a href="rules.html">利用規約</a>
+</nav>
+
 <div style="display:flex; justify-content:flex-end; align-items:center; padding:10px 15px;">
   <img src="無題187_20260805161156.png" alt="Siveロゴ" style="width:120px;">
 </div>
@@ -217,7 +262,7 @@
 
     <a href="index.html" class="back-link">← TOPへ戻る</a>
 </main>
-main>
+
 <div style="text-align:center; margin:30px 0;">
   <a href="https://github.com/SiveProjectOfficial/Utaun" target="_blank">
     <img src="image/無題116_20260410031946.jpeg" alt="Utaunバナー" style="max-width:100%; height:auto;">
@@ -226,20 +271,20 @@ main>
 
 <footer>
     <div class="sns-links">
-  <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）">正弦波くん【bot】
-  </a>
-  <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
-    <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）">Sive【ららら】
-  </a>
-  <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
-    <img src="無題127_20260525185536.png" alt="YouTube">Sive【ららら】
-  </a>
-  <a href="https://x.com/sivelalala?s=21" target="_blank">
-    <img src="無題127_20260525185538.png" alt="X">Sive【ららら】
-  </a>
-</div>
-        <div style="margin-bottom: 20px;">
+      <a href="https://bsky.app/profile/sive1992.bsky.social" target="_blank">
+        <img src="無題127_20260525184712.png" alt="Bluesky（正弦波くん【bot】）"><span>正弦波くん【bot】</span>
+      </a>
+      <a href="https://bsky.app/profile/sivelalala.bsky.social" target="_blank">
+        <img src="無題127_20260525184712.png" alt="Bluesky（Sive【ららら】）"><span>Sive【ららら】</span>
+      </a>
+      <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank">
+        <img src="無題127_20260525185536.png" alt="YouTube"><span>Sive【ららら】</span>
+      </a>
+      <a href="https://x.com/sivelalala?s=21" target="_blank">
+        <img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span>
+      </a>
+    </div>
+    <div style="margin-bottom: 20px;">
         <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
     </div>
     <div style="margin-bottom: 25px;">
