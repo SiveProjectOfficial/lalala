@@ -12,8 +12,8 @@
     </script>
 
     <meta name="description" content="UTAU音源『虚音セイ』の公式設定・プロフィール紹介ページです。キャラクターの詳細はこちらからご確認ください。">
-    <link rel="icon" href="IMG_2605_20260805232926.ico⁠?v=2">
-    <link rel="apple-touch-icon" href="IMG_2605_20260805232926.ico⁠?v=2">
+    <link rel="icon" href="IMG_2605_20260805232926.ico?v=2">
+    <link rel="apple-touch-icon" href="IMG_2605_20260805232926.ico?v=2">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="虚音セイ,そらねせい,そらねセイ,セイ,正弦波くんの妹,UTAU音源配布,無生物UTAU音源配布,UTAU,OpenUTAU,Utaun,音源配布">
@@ -28,13 +28,13 @@
             --sub-text: #555555;
             --border-color: #eaeaea;
             --header-color: #FF00BF; /* 虚音セイ指定カラー */
-            --gmail-link: #002AFF;   /* Gmail指定カラー */
+            --gmail-link: #002AFF;   
             --sns-links: #002AFF;
             --nav-bg: #f0f0f0;
             --nav-border: #000000;
             --nav-text: #000000;
-            --sei-active-bg: #FF00BF; /* ライトモードのタブ背景色 */
-            --sei-active-text: #ffffff; /* ライトモードの文字色（白） */
+            --sei-active-bg: #FF00BF; 
+            --sei-active-text: #ffffff; 
         }
 
         /* ダークモード */
@@ -44,14 +44,14 @@
             --text-color: #f0f0f0;
             --sub-text: #b0b0b0;
             --border-color: #333333;
-            --header-color: #FF9EE6; /* ユマ指定カラー */
+            --header-color: #FF9EE6; 
             --gmail-link: #81d4fa;
             --sns-links: #81d4fa;
             --nav-bg: #2a2a2a;
             --nav-border: #F0F0F0;
             --nav-text: #ffffff;
-            --sei-active-bg: #FF9EE6; /* ダークモードのタブ背景色 */
-            --sei-active-text: #000000; /* ダークモードの文字色（黒） */
+            --sei-active-bg: #FF9EE6; 
+            --sei-active-text: #000000; 
         }
 
         body {
@@ -197,12 +197,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .footer-gmail-link {
-            color: var(--gmail-link);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
         /* --- SNSリンク：2列2行 --- */
         .sns-links {
             display: grid;
@@ -257,7 +251,6 @@
     <div style="display:flex; justify-content:flex-end; align-items:center; padding:10px 15px;">
       <img src="無題194_20260806043405.png" alt="Siveロゴ" style="width:120px;">
     </div>
-    <!-- 立ち絵画像ファイル名に合わせて変更してね -->
     <img src="無題92_20260420002524.jpeg" alt="虚音セイの立ち絵" class="main-img">
 
     <h2>虚音セイ</h2>
@@ -310,12 +303,28 @@
         <img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span>
       </a>
     </div>
+
+    <!-- ★完全匿名不具合ボックス -->
+    <div style="max-width: 400px; margin: 0 auto 25px; padding: 20px; background: var(--container-bg); border: 1px solid var(--border-color); border-radius: 12px; text-align: left;">
+        <p style="margin: 0 0 5px 0; font-weight: bold; font-size: 0.9rem;">不具合・ご意見</p>
+        
+        <form id="contact-form">
+            <!-- ★共通のアクセスキーをここにセット -->
+            <input type="hidden" name="access_key" value="40b4c2ec-2bab-4f17-a213-b3a1901bbeb6">
+            
+            <div style="margin-bottom: 10px;">
+                <textarea name="message" required rows="3" placeholder="例：虚音セイの音声がプツプツしている、など" style="width: 100%; padding: 10px; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 0.85rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button type="submit" id="submit-btn" style="padding: 8px 20px; background: var(--text-color); color: var(--container-bg); border: none; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: opacity 0.2s;">送信する</button>
+                <span id="form-result" style="font-size: 0.8rem; font-weight: bold;"></span>
+            </div>
+        </form>
+    </div>
+
     <div style="margin-bottom: 20px;">
         <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
-    </div>
-    <div style="margin-bottom: 25px;">
-        <span style="font-weight: bold;">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" class="footer-gmail-link">0329.mth@gmail.com</a>
     </div>
     
     <p style="font-size: 0.75rem; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
@@ -323,11 +332,50 @@
 </footer>
 
 <script>
-    // ★bodyタグにもテーマ属性を付与して同期する
+    // テーマ同期
     (function syncTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         document.body.setAttribute('data-theme', currentTheme);
     })();
+
+    // 匿名フォーム送信処理
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const formResult = document.getElementById('form-result');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            formResult.style.color = "var(--text-color)";
+            formResult.textContent = "送信中...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let resJson = await response.json();
+                if (response.status == 200) {
+                    formResult.style.color = "#0CBFBD"; 
+                    formResult.textContent = "送信完了しました！";
+                    contactForm.reset();
+                } else {
+                    formResult.style.color = "#FC0254"; 
+                    formResult.textContent = "送信に失敗しました。";
+                }
+            })
+            .catch(error => {
+                formResult.style.color = "#FC0254";
+                formResult.textContent = "エラーが発生しました。";
+            });
+        });
+    }
 </script>
 
 </body>
