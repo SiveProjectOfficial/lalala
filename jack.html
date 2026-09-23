@@ -21,37 +21,35 @@
     <style>
         /* --- 変数定義 --- */
         :root {
-            /* ライトモード：ユマ指定カラーを厳守 */
             --bg-color: #f4f7f9;
             --container-bg: #ffffff;
             --text-color: #1a1a1a;
             --sub-text: #555555;
             --border-color: #eaeaea;
-            --header-color: #CF0000; /* 正弦波くん指定カラー */
-            --gmail-link: #002AFF;   /* Gmail指定カラー */
+            --header-color: #CF0000; 
+            --gmail-link: #002AFF;   
             --sns-links: #002AFF;
             --nav-bg: #f0f0f0;
             --nav-border: #000000;
             --nav-text: #000000;
-            --jack-active-bg: #ff0000; /* ライトモードのタブ背景色 */
-            --jack-active-text: #ffffff; /* ライトモードの文字色（白） */
+            --jack-active-bg: #ff0000; 
+            --jack-active-text: #ffffff; 
         }
 
-        /* ダークモード */
         [data-theme="dark"] {
             --bg-color: #121212;
             --container-bg: #1e1e1e;
             --text-color: #f0f0f0;
             --sub-text: #b0b0b0;
             --border-color: #333333;
-            --header-color: #FF5C8D; /* ダークで見やすい色に調整 */
+            --header-color: #FF5C8D; 
             --gmail-link: #81d4fa;
             --sns-links: #81d4fa;
             --nav-bg: #2a2a2a;
             --nav-border: #F0F0F0;
             --nav-text: #ffffff;
-            --jack-active-bg: #FF5C8D; /* ダークモードのタブ背景色 */
-            --jack-active-text: #000000; /* ダークモードの文字色（黒） */
+            --jack-active-bg: #FF5C8D; 
+            --jack-active-text: #000000; 
         }
 
         body {
@@ -63,7 +61,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- ヘッダーナビゲーション（上部固定・ border-top を加えて枠線を統一） --- */
         .top-nav {
             display: flex;
             width: 100%;
@@ -98,7 +95,6 @@
             border-right: none;
         }
 
-        /* アクティブボタン（正弦波くん専用レッド） */
         .top-nav a.active-jack {
             background-color: var(--jack-active-bg);
             color: var(--jack-active-text);
@@ -197,13 +193,6 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .footer-gmail-link {
-            color: var(--gmail-link);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* --- SNSリンク：2列2行 --- */
         .sns-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -244,7 +233,7 @@
 </head>
 <body>
 
-<!-- 固定ヘッダーメニュー（虚音セイを追加） -->
+<!-- 固定ヘッダーメニュー -->
 <nav class="top-nav">
   <a href="index.html">ホーム</a>
   <a href="jack.html" class="active-jack">正弦波<br>ジャック</a>
@@ -311,12 +300,28 @@
         <img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span>
       </a>
     </div>
+
+    <!-- ★完全匿名不具合ボックス -->
+    <div style="max-width: 400px; margin: 0 auto 25px; padding: 20px; background: var(--container-bg); border: 1px solid var(--border-color); border-radius: 12px; text-align: left;">
+        <p style="margin: 0 0 5px 0; font-weight: bold; font-size: 0.9rem;">不具合・ご意見</p
+        
+        <form id="contact-form">
+            <!-- ★取得したアクセスキーをここにセット -->
+            <input type="hidden" name="access_key" value="40b4c2ec-2bab-4f17-a213-b3a1901bbeb6">
+            
+            <div style="margin-bottom: 10px;">
+                <textarea name="message" required rows="3" placeholder="例：正弦波ジャックの音が途切れる、など" style="width: 100%; padding: 10px; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 0.85rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button type="submit" id="submit-btn" style="padding: 8px 20px; background: var(--text-color); color: var(--container-bg); border: none; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: opacity 0.2s;">送信する</button>
+                <span id="form-result" style="font-size: 0.8rem; font-weight: bold;"></span>
+            </div>
+        </form>
+    </div>
+
     <div style="margin-bottom: 20px;">
         <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
-    </div>
-    <div style="margin-bottom: 25px;">
-        <span style="font-weight: bold;">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" class="footer-gmail-link">0329.mth@gmail.com</a>
     </div>
     
     <p style="font-size: 0.75rem; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
@@ -324,11 +329,50 @@
 </footer>
 
 <script>
-    // ★bodyタグにもテーマ属性を付与して同期する
+    // テーマ同期
     (function syncTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         document.body.setAttribute('data-theme', currentTheme);
     })();
+
+    // ★画面が変わらず裏でスッと送信するJavaScript
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const formResult = document.getElementById('form-result');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            formResult.style.color = "var(--text-color)";
+            formResult.textContent = "送信中...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let resJson = await response.json();
+                if (response.status == 200) {
+                    formResult.style.color = "#0CBFBD"; 
+                    formResult.textContent = "送信完了しました！";
+                    contactForm.reset();
+                } else {
+                    formResult.style.color = "#FC0254"; 
+                    formResult.textContent = "送信に失敗しました。";
+                }
+            })
+            .catch(error => {
+                formResult.style.color = "#FC0254";
+                formResult.textContent = "エラーが発生しました。";
+            });
+        });
+    }
 </script>
 
 </body>
