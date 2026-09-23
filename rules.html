@@ -12,8 +12,8 @@
     </script>
 
     <meta name="description" content="Siveの音源利用規約およびダウンロードページです。ご利用の前に必ず内容のご確認をお願いいたします。">
-    <link rel="icon" href="IMG_2605_20260805232926.ico⁠?v=2">
-    <link rel="apple-touch-icon" href="IMG_2605_20260805232926.ico⁠?v=2">
+    <link rel="icon" href="IMG_2605_20260805232926.ico?v=2">
+    <link rel="apple-touch-icon" href="IMG_2605_20260805232926.ico?v=2">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="UTAU音源利用規約,利用規約,Sive,正弦波ジャック,正幻波ナノカ,虚音セイ,UTAU,OpenUTAU">
@@ -28,12 +28,11 @@
             --border-color: #eeeeee;
             --section-bg: #fdfdfd;
             --sns-links: #002AFF;
-            --gmail-color: #002AFF;
             --nav-bg: #f0f0f0;
             --nav-border: #000000;
             --nav-text: #000000;
-            --rules-active-bg: var(--text-color); /* ライトモードの背景色 */
-            --rules-active-text: var(--container-bg); /* ライトモードの文字色 */
+            --rules-active-bg: var(--text-color); 
+            --rules-active-text: var(--container-bg); 
         }
 
         /* ダークモード */
@@ -45,12 +44,11 @@
             --border-color: #333333;
             --section-bg: #252525;
             --sns-links: #81d4fa;
-            --gmail-color: #81d4fa;
             --nav-bg: #1e1e1e;
             --nav-border: #ffffff;
             --nav-text: #ffffff;
-            --rules-active-bg: #ffffff; /* ★ダークモード時の指定背景色 */
-            --rules-active-text: #000000; /* 背景が明るいので文字色を黒に設定 */
+            --rules-active-bg: #ffffff; 
+            --rules-active-text: #000000; 
         }
 
         body {
@@ -115,17 +113,17 @@
         h2 { text-align: center; font-size: 2rem; margin-bottom: 30px; }
         .ch-section { margin-bottom: 50px; padding: 20px; border-radius: 10px; }
         .jack-border { border: 2px solid #FC0254; }
-        .sei-border { border: 2px solid #FF00BF; } /* 虚音セイ用枠線（ライトモード） */
+        .sei-border { border: 2px solid #FF00BF; } 
         .nanoka-border { border: 2px solid #0CBFBD; }
         
-        [data-theme="dark"] .sei-border { border-color: #FF9EE6; } /* 虚音セイ用枠線（ダークモード） */
+        [data-theme="dark"] .sei-border { border-color: #FF9EE6; } 
 
         h3 { margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); }
         .jack-title { color: #FC0254; }
-        .sei-title { color: #FF00BF; } /* 虚音セイ用タイトル（ライトモード） */
+        .sei-title { color: #FF00BF; } 
         .nanoka-title { color: #0CBFBD; }
 
-        [data-theme="dark"] .sei-title { color: #FF9EE6; } /* 虚音セイ用タイトル（ダークモード） */
+        [data-theme="dark"] .sei-title { color: #FF9EE6; } 
 
         .rule-list { list-style: decimal; padding-left: 20px; }
         .rule-list li { margin-bottom: 12px; font-weight: bold; }
@@ -185,7 +183,7 @@
 </head>
 <body>
 
-<!-- 固定ヘッダーメニュー（虚音セイを追加） -->
+<!-- 固定ヘッダーメニュー -->
 <nav class="top-nav">
   <a href="index.html">ホーム</a>
   <a href="jack.html">正弦波<br>ジャック</a>
@@ -302,7 +300,6 @@
         <div class="dl-btn-container">
             <label class="check-area"><input type="checkbox" id="check-sei"> 虚音セイの規約に同意する</label><br>
             <a href="./voicebank/%E8%99%9a%E9%9F%B3%E3%82%BB%E3%82%A4%E3%80%90JPN%26ENG%E3%80%91%EF%BC%88ver-1.0.0%EF%BC%89.zip" id="dl-sei" class="dl-btn" download>ダウンロード</a>
-
         </div>
     </div>
 
@@ -348,25 +345,42 @@
         <a href="https://youtube.com/@sivelalala?si=R3yds_zverUXZmaX" target="_blank"><img src="無題127_20260525185536.png" alt="YouTube"><span>Sive【ららら】</span></a>
         <a href="https://x.com/sivelalala?s=21" target="_blank"><img src="無題127_20260525185538.png" alt="X"><span>Sive【ららら】</span></a>
     </div>
-    <div style="margin: 20px 0;">
-        <a href="sitemap.html" style="color: var(--sub-text);">サイトマップ</a>
+
+    <!-- ★完全匿名不具合ボックス -->
+    <div style="max-width: 400px; margin: 30px auto 25px; padding: 20px; background: var(--container-bg); border: 1px solid var(--border-color); border-radius: 12px; text-align: left;">
+        <p style="margin: 0 0 5px 0; font-weight: bold; font-size: 0.9rem;">不具合・ご意見</p>
+        
+        <form id="contact-form">
+            <!-- ★共通のアクセスキーをここにセット -->
+            <input type="hidden" name="access_key" value="40b4c2ec-2bab-4f17-a213-b3a1901bbeb6">
+            
+            <div style="margin-bottom: 10px;">
+                <textarea name="message" required rows="3" placeholder="例：利用規約で他に気をつけたら良い所はどこかなど" style="width: 100%; padding: 10px; background: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 8px; box-sizing: border-box; font-size: 0.85rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button type="submit" id="submit-btn" style="padding: 8px 20px; background: var(--text-color); color: var(--container-bg); border: none; border-radius: 20px; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: opacity 0.2s;">送信する</button>
+                <span id="form-result" style="font-size: 0.8rem; font-weight: bold;"></span>
+            </div>
+        </form>
     </div>
-    <div style="margin-bottom: 25px;">
-        <span style="font-weight: bold;">Gmail</span><br>
-        <a href="mailto:0329.mth@gmail.com" style="color: var(--gmail-color); text-decoration: none;">0329.mth@gmail.com</a>
+
+    <div style="margin: 20px 0;">
+        <a href="sitemap.html" style="color: var(--sub-text); font-size: 0.8rem;">サイトマップ</a>
     </div>
     
-    <p style="font-size: 0.75rem; margin: 0;">Powered by GitHub Pages</p>
+    <p style="font-size: 0.75rem; margin: 0; line-height: 1.2;">Powered by GitHub Pages</p>
     <p style="letter-spacing: 1px; margin: 0; line-height: 1.8;">&copy; 2026 Sive All Rights Reserved.</p>
 </footer>
 
 <script>
-    // ★bodyタグにもテーマ属性を付与して同期する
+    // テーマ同期
     (function syncTheme() {
         const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
         document.body.setAttribute('data-theme', currentTheme);
     })();
 
+    // ダウンロードボタンの有効化処理
     const checkJack = document.getElementById('check-jack');
     const dlJack = document.getElementById('dl-jack');
     const checkSei = document.getElementById('check-sei');
@@ -386,6 +400,45 @@
         dlNanoka.style.pointerEvents = this.checked ? 'auto' : 'none';
         dlNanoka.style.backgroundColor = this.checked ? '#0CBFBD' : '#ccc';
     });
+
+    // 匿名フォーム送信処理
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        const formResult = document.getElementById('form-result');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            formResult.style.color = "var(--text-color)";
+            formResult.textContent = "送信中...";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let resJson = await response.json();
+                if (response.status == 200) {
+                    formResult.style.color = "#0CBFBD"; 
+                    formResult.textContent = "送信完了しました！";
+                    contactForm.reset();
+                } else {
+                    formResult.style.color = "#FC0254"; 
+                    formResult.textContent = "送信に失敗しました。";
+                }
+            })
+            .catch(error => {
+                formResult.style.color = "#FC0254";
+                formResult.textContent = "エラーが発生しました。";
+            });
+        });
+    }
 </script>
 
 </body>
